@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    <Value>k__BackingField: 0
-    <MaxValue>k__BackingField: 0
+    <Value>k__BackingField: 100
+    <MaxValue>k__BackingField: 100
 --- !u!1 &994675548
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 994675548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1dcaf8d7f54417a7cca3f5e6fddc28, type: 3}
+  m_Script: {fileID: 11500000, guid: d055074a6fa34214bd4b416267cc7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
@@ -500,10 +500,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227193381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1dcaf8d7f54417a7cca3f5e6fddc28, type: 3}
+  m_Script: {fileID: 11500000, guid: 81590f359156468cb3de10d66994820e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  attackRadius: 3
+  attackCooldown: 3
 --- !u!1 &1500883953
 GameObject:
   m_ObjectHideFlags: 0

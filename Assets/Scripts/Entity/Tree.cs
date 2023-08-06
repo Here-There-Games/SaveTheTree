@@ -1,7 +1,16 @@
-﻿using System;
+﻿using Interfaces;
+using Mechanics;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+namespace Entity
 {
-    [SerializeField] private EntityAttribute health;
+    public class Tree : MonoBehaviour, ITakeDamage
+    {
+        [SerializeField] private EntityAttribute health;
+
+        public void TakeDamage(IDamage damageI)
+        {
+            health.Spend(damageI.Damage);
+        }
+    }
 }
