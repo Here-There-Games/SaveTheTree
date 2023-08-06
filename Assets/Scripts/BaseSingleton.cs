@@ -7,7 +7,7 @@ public class BaseSingleton<T> : MonoBehaviour where T : Component
     private void Awake()
     {
         if(Instance != null && Instance != this){
-            Debug.LogError($"Instance, great 1. {name}");
+            Debug.LogError($"Instance great 1. {name}");
             Destroy(this);
         }
         else{
@@ -16,5 +16,8 @@ public class BaseSingleton<T> : MonoBehaviour where T : Component
         Initialize();
     }
 
-    private void Initialize() { }
+    protected virtual void Initialize()
+    {
+        Debug.LogError(typeof(T).Name + " initialized");
+    }
 }
