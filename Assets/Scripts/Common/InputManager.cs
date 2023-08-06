@@ -1,21 +1,22 @@
-﻿using System;
-
-public class InputManager : BaseSingleton<InputManager>
+﻿namespace Common
 {
-    public ControllInput player { get; private set; }
-
-    protected override void Initialize()
+    public class InputManager : BaseSingleton<InputManager>
     {
-        player = new ControllInput();
-    }
+        public ControllInput player { get; private set; }
 
-    private void OnEnable()
-    {
-        player.Enable();
-    }
+        protected override void Initialize()
+        {
+            player = new ControllInput();
+        }
 
-    private void OnDestroy()
-    {
-        player.Disable();
+        private void OnEnable()
+        {
+            player.Enable();
+        }
+
+        private void OnDestroy()
+        {
+            player.Disable();
+        }
     }
 }
