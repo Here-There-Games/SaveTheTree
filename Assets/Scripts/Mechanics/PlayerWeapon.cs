@@ -1,4 +1,3 @@
-using System;
 using Common;
 using Interfaces;
 using UnityEngine;
@@ -23,7 +22,7 @@ namespace Mechanics
         private void Start()
         {
             shoot = InputManager.Instance.InputControl.Player.Fire;
-            shoot.performed += ShootCallback; //c => Shoot();
+            shoot.performed += ShootCallback;
         }
 
         private void ShootCallback(InputAction.CallbackContext obj)

@@ -16,7 +16,6 @@ namespace Mechanics
         {
             controllable = GetComponent<IControllable>();
             moving = InputManager.Instance.InputControl.Player.Movement;
-            // moving = InputManager.Instance.InputControll.Player.Movement;
         }
 
         private void Update()
