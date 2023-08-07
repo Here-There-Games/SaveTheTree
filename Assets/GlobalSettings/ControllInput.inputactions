@@ -15,13 +15,13 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Crosshair",
-                    "type": "Value",
+                    "name": "Fire",
+                    "type": "Button",
                     "id": "e9b0c4b5-30fa-465f-81ac-f59cc223b2b7",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -137,12 +137,23 @@
                 },
                 {
                     "name": "",
-                    "id": "88d85ffa-3e57-4e0d-9881-e965bd85bb3d",
-                    "path": "<Pointer>/delta",
+                    "id": "cb80e75c-1b90-47cb-8395-510a77c197de",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Crosshair",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4088fd1-b898-4f07-a7dd-698963420d50",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,21 +2,21 @@
 {
     public class InputManager : BaseSingleton<InputManager>
     {
-        public ControllInput player { get; private set; }
+        public ControllInput InputControl { get; private set; }
 
         protected override void Initialize()
         {
-            player = new ControllInput();
+            InputControl = new ControllInput();
         }
 
         private void OnEnable()
         {
-            player.Enable();
+            InputControl.Enable();
         }
 
         private void OnDestroy()
         {
-            player.Disable();
+            InputControl.Disable();
         }
     }
 }
