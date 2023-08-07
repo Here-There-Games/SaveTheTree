@@ -1,13 +1,11 @@
 using System;
-using Common;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entity
 {
-    public class EnemyAI : MonoBehaviour
+    public class EnemyAI : MonoBehaviour, ITakeDamage
     {
         [SerializeField] private EntityAttribute health;
         [SerializeField] private EntityAttack attack;
@@ -31,16 +29,23 @@ namespace Entity
             enemyTransform = transform;
 
             attack.Init(this);
+            health.OnChangeValue += value =>
+                                        {
+                                            if(value <= 0)
+                                                Dead();
+                                        };
         }
 
         private void FixedUpdate()
         {
             Vector2 direction = treeTransform.position - enemyTransform.position;
-            if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Radius){
+
+            if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
                 controllable.Move(Vector2.zero);
 
                 if(attack.TryAttack()){
-                    RaycastHit2D hit = Physics2D.Raycast(enemyTransform.position, direction);
+                    RaycastHit2D hit =
+                        Physics2D.Raycast(enemyTransform.position, direction, attack.Range, attack.Layer);
                     hit.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
                 }
             }
@@ -48,37 +53,15 @@ namespace Entity
                 controllable.Move(direction);
             }
         }
-    }
 
-    [Serializable]
-    public class EntityAttack: IDamage
-    {
-        [field: SerializeField] public float Radius { get; private set; }
-        [field: SerializeField] public float Damage { get; private set; }
-        
-        [SerializeField] private float cooldown;
-
-        private Timer timer;
-
-        public void Init(MonoBehaviour mono)
+        public void TakeDamage(IDamage damageI)
         {
-            timer = new Timer(mono, cooldown);
-            timer.OnStart += Attack;
+            health.Spend(damageI.Damage);
         }
 
-        public bool TryAttack()
+        private void Dead()
         {
-            if(timer.Stopped){
-                timer.Start();
-                return true;
-            }
-
-            return false;
-        }
-
-        private void Attack()
-        {
-            Debug.Log("Attack");
+            Destroy(gameObject);
         }
     }
 }
