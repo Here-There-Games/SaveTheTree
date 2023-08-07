@@ -2,7 +2,6 @@ using System;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Entity
 {
@@ -30,22 +29,23 @@ namespace Entity
             enemyTransform = transform;
 
             attack.Init(this);
-            health.OnZeroValue += Dead;
-        }
-
-        private void Dead()
-        {
-            Destroy(gameObject);
+            health.OnChangeValue += value =>
+                                        {
+                                            if(value <= 0)
+                                                Dead();
+                                        };
         }
 
         private void FixedUpdate()
         {
             Vector2 direction = treeTransform.position - enemyTransform.position;
+
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
                 controllable.Move(Vector2.zero);
 
                 if(attack.TryAttack()){
-                    RaycastHit2D hit = Physics2D.Raycast(enemyTransform.position, direction, attack.Range);
+                    RaycastHit2D hit =
+                        Physics2D.Raycast(enemyTransform.position, direction, attack.Range, attack.Layer);
                     hit.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
                 }
             }
@@ -57,6 +57,11 @@ namespace Entity
         public void TakeDamage(IDamage damageI)
         {
             health.Spend(damageI.Damage);
+        }
+
+        private void Dead()
+        {
+            Destroy(gameObject);
         }
     }
 }
