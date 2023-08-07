@@ -35,14 +35,16 @@ namespace Entity
 
         private void FixedUpdate()
         {
+            Vector2 direction = treeTransform.position - enemyTransform.position;
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Radius){
                 controllable.Move(Vector2.zero);
 
-                if(attack.TryAttack())
-                    health.Spend(attack.Damage);
+                if(attack.TryAttack()){
+                    RaycastHit2D hit = Physics2D.Raycast(enemyTransform.position, direction);
+                    hit.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                }
             }
             else{
-                Vector2 direction = treeTransform.position - enemyTransform.position;
                 controllable.Move(direction);
             }
         }
