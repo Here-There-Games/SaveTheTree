@@ -8,6 +8,7 @@ namespace Mechanics
     public class UserInput : MonoBehaviour
     {
         private InputAction moving;
+        private InputAction mousePoint;
         private Vector2 direction;
         private IControllable controllable;
 
@@ -15,6 +16,7 @@ namespace Mechanics
         {
             controllable = GetComponent<IControllable>();
             moving = InputManager.Instance.player.Player.Movement;
+            // moving = InputManager.Instance.player.Player.Movement;
         }
 
         private void Update()
