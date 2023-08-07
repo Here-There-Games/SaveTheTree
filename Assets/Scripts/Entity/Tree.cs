@@ -13,4 +13,11 @@ namespace Entity
             health.Spend(damageI.Damage);
         }
     }
+
+    [System.Serializable]
+    public class TreeStage
+    {
+        [field: SerializeField] public Sprite Sprite { get; private set; }
+        [field: SerializeField] public float AddHPPercent { get; private set; }
+    }
 }
