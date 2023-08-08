@@ -64,9 +64,7 @@ namespace Entity
 
         private void Dead()
         {
-            StatHandle handle = tree.GetComponent<StatHandle>();
-            print(handle.Level + " " + handle.name);
-            handle.Level.AddExperience(this);
+            tree.GetComponent<StatHandle>().Level.AddExperience(this);
             Destroy(gameObject);
         }
     }

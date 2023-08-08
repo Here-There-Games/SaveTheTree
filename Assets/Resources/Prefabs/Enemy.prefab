@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8946914615007297321}
   - component: {fileID: 8946914615007297320}
   - component: {fileID: 8946914615007297322}
-  m_Layer: 0
+  - component: {fileID: 4990052345879584731}
+  - component: {fileID: 2495584986975960772}
+  m_Layer: 3
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,13 +122,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435db5a445dd417d806d1d3a4c049ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health:
-    <Value>k__BackingField: 50
-    <MaxValue>k__BackingField: 100
   attack:
-    <Radius>k__BackingField: 3
+    <Range>k__BackingField: 4
     <Damage>k__BackingField: 2
+    <Layer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 64
     cooldown: 3
+  experience: 50
 --- !u!114 &8946914615007297322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +143,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &4990052345879584731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946914615007297317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a3525674d94ec18ae02a21f929e714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField:
+    <Value>k__BackingField: 10
+    <MaxValue>k__BackingField: 10
+  <Level>k__BackingField:
+    <Level>k__BackingField: 0
+    <MaxLevel>k__BackingField: 0
+    <CurrentExperience>k__BackingField: 0
+--- !u!70 &2495584986975960772
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946914615007297317}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.081724465, y: -0.03771901}
+  m_Size: {x: 0.6698843, y: 0.9662286}
+  m_Direction: 0
