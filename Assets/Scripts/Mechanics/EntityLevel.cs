@@ -9,32 +9,39 @@ namespace Mechanics
     {
         public event UnityAction<int> OnLevelUp;
         public event UnityAction<float> OnChangeExperience;
-        
-        [field:SerializeField] public int Level { get; private set; }
-        [field:SerializeField] public float CurrentExperience { get; private set; }
+
+        [field: SerializeField] public int Level { get; private set; }
+        [field: SerializeField, Tooltip("If 0, that infinity")] public int MaxLevel { get; private set; }
+        [field: SerializeField] public float CurrentExperience { get; private set; }
         public float ExperienceNormalized => CurrentExperience / MaxExperience;
         public float MaxExperience => GetMaxExperience();
 
-        public EntityLevel()
+        public EntityLevel(int maxLevel)
         {
-            Level = 0;
+            Level = 1;
             CurrentExperience = 0;
+            MaxLevel = maxLevel;
         }
 
-        public void AddExperience(IExperience experienceI)
+        public void AddExperience(IFloat experienceI)
         {
-            CurrentExperience += experienceI.Experience;
-            OnChangeExperience?.Invoke(CurrentExperience);
+            while(CurrentExperience + experienceI.Value >= MaxExperience){
+                if(MaxLevel != 0 && Level >= MaxLevel)
+                    break;
+                CurrentExperience++;
+                OnChangeExperience?.Invoke(CurrentExperience);
 
-            while(CurrentExperience >= MaxExperience){
-                CurrentExperience -= MaxExperience;
-                OnLevelUp?.Invoke(Level);
+                if(CurrentExperience >= MaxExperience){
+                    CurrentExperience -= MaxExperience;
+                    Level++;
+                    OnLevelUp?.Invoke(Level);
+                }
             }
         }
 
         private float GetMaxExperience()
         {
-            return Level * 10 + 50;
+            return Level * 15;
         }
     }
 }

@@ -132,10 +132,10 @@ TextureImporter:
       name: derewo_0
       rect:
         serializedVersion: 2
-        x: 104
+        x: 103
         y: 74
-        width: 7
-        height: 13
+        width: 9
+        height: 14
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: derewo_1
       rect:
         serializedVersion: 2
-        x: 116
+        x: 115
         y: 74
-        width: 7
-        height: 16
+        width: 9
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: derewo_2
       rect:
         serializedVersion: 2
-        x: 126
+        x: 125
         y: 74
-        width: 7
-        height: 18
+        width: 9
+        height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: derewo_3
       rect:
         serializedVersion: 2
-        x: 138
+        x: 137
         y: 74
-        width: 11
-        height: 26
+        width: 13
+        height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: derewo_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 151
         y: 74
-        width: 14
-        height: 35
+        width: 16
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

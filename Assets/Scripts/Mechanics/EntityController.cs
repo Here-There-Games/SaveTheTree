@@ -22,9 +22,5 @@ namespace Mechanics
         {
             rigidbody.velocity = direction.normalized * speed;
         }
-
-        public void Shoot(Vector2 direction)
-        {
-        }
     }
 }

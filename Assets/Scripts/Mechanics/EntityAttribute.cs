@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 namespace Mechanics
 {
@@ -10,8 +9,16 @@ namespace Mechanics
     {
         public event UnityAction<float> OnChangeValue;
 
-        [field: SerializeField]public float Value{get; private set;}
-        [field: SerializeField]public float MaxValue{get; private set;}
+        [field: SerializeField] public float Value { get; private set; }
+        [field: SerializeField] public float MaxValue { get; private set; }
+
+        public EntityAttribute(float maxValue) : this(maxValue, maxValue) { }
+
+        public EntityAttribute(float value, float maxValue)
+        {
+            Value = value;
+            MaxValue = maxValue;
+        }
 
         public float GetNormalized()
             => Value / MaxValue;
@@ -24,18 +31,24 @@ namespace Mechanics
             CheckValue();
         }
 
-        private void CheckValue()
-        {
-            Value = Mathf.Clamp(Value,0, MaxValue);
-            OnChangeValue?.Invoke(Value);
-        }
-    
         public void Add(float amount)
         {
             if(amount < 0)
                 throw new ArgumentOutOfRangeException();
             Value += amount;
             CheckValue();
+        }
+
+        public void UpgradeAttribute(float value)
+        {
+            MaxValue += value;
+            MaxValue = Mathf.Clamp(MaxValue, 0, MaxValue);
+        }
+
+        private void CheckValue()
+        {
+            Value = Mathf.Clamp(Value, 0, MaxValue);
+            OnChangeValue?.Invoke(Value);
         }
     }
 }

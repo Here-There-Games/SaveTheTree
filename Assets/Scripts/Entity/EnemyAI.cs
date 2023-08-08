@@ -1,16 +1,19 @@
-using System;
+using Common.Utilities;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
 
 namespace Entity
 {
-    public class EnemyAI : MonoBehaviour, ITakeDamage
+    public class EnemyAI : MonoBehaviour, ITakeDamage, IFloat
     {
-        [SerializeField] private EntityAttribute health;
+        public float Value => experience;
+
         [SerializeField] private EntityAttack attack;
+        [SerializeField] private float experience;
 
         private new Rigidbody2D rigidbody;
+        private StatHandle stat;
         private Transform enemyTransform;
         private Transform treeTransform;
         private Tree tree;
@@ -20,20 +23,20 @@ namespace Entity
         {
             rigidbody = GetComponent<Rigidbody2D>();
             controllable = GetComponent<IControllable>();
+            stat = GetComponent<StatHandle>();
             tree = FindObjectOfType<Tree>();
 
-            if(controllable == null)
-                throw new NullReferenceException($"Add to {name} a class who realise IControllable interface");
+            Extensions.CheckForNullComponents(this, new[]{ rigidbody, stat, tree, (Component)controllable });
 
             treeTransform = tree.transform;
             enemyTransform = transform;
 
             attack.Init(this);
-            health.OnChangeValue += value =>
-                                        {
-                                            if(value <= 0)
-                                                Dead();
-                                        };
+            stat.Health.OnChangeValue += value =>
+                                             {
+                                                 if(value <= 0)
+                                                     Dead();
+                                             };
         }
 
         private void FixedUpdate()
@@ -56,11 +59,14 @@ namespace Entity
 
         public void TakeDamage(IDamage damageI)
         {
-            health.Spend(damageI.Damage);
+            stat.Health.Spend(damageI.Damage);
         }
 
         private void Dead()
         {
+            StatHandle handle = tree.GetComponent<StatHandle>();
+            print(handle.Level + " " + handle.name);
+            handle.Level.AddExperience(this);
             Destroy(gameObject);
         }
     }

@@ -1,7 +1,7 @@
 namespace Interfaces
 {
-    public interface IExperience
+    public interface IFloat
     {
-        public float Experience { get; }
+        public float Value { get; }
     }
 }
