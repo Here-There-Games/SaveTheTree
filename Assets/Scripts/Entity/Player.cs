@@ -4,6 +4,6 @@ namespace Entity
 {
     public class Player : MonoBehaviour
     {
-           
+        
     }
 }

@@ -1,22 +1,19 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Mechanics
 {
-    public class CursorCrosshair : MonoBehaviour, IPointerMoveHandler
+    public class CursorCrosshair : MonoBehaviour
     {
         [SerializeField] private Texture2D cursorTexture;
-        [SerializeField] private Vector2 cursorOffset;
+        private Vector2 cursorOffset;
         
         [ContextMenu("Update Cursor")]
         private void SetCursor()
         {
-            Cursor.SetCursor(cursorTexture, cursorOffset, CursorMode.Auto);            
-        }
-    
-        public void OnPointerMove(PointerEventData eventData)
-        {
-            print(eventData.delta);
+            if(cursorTexture != null){
+                cursorOffset = new Vector2(cursorTexture.width / 2f, cursorTexture.height / 2f);
+                Cursor.SetCursor(cursorTexture, cursorOffset, CursorMode.Auto);
+            }
         }
     }
 }
