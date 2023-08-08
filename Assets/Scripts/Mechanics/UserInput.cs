@@ -33,7 +33,7 @@ namespace Mechanics
         private void Update()
         {
             direction = moving.ReadValue<Vector2>();
-            if(weapon.CanRotate)
+            if(weapon.CanRotate && Time.timeScale != 0)
                 weapon.RotateWeapon(CalculateRotateForWeapon());
         }
 
@@ -44,7 +44,13 @@ namespace Mechanics
 
         private void Subscribe()
         {
-            fire.performed += _ => weapon.Shoot(CalculateRotateForWeapon());
+            fire.performed += FireOnPerformed;
+        }
+
+        private void FireOnPerformed(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                weapon.Shoot(direction);
         }
 
         private Vector2 CalculateRotateForWeapon()

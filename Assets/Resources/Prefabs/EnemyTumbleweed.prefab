@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8946914615007297319}
   - component: {fileID: 8946914615007297318}
   - component: {fileID: 8946914615007297321}
-  - component: {fileID: 8946914615007297320}
   - component: {fileID: 8946914615007297322}
+  - component: {fileID: 7079131910664029048}
   - component: {fileID: 4990052345879584731}
-  - component: {fileID: 2495584986975960772}
+  - component: {fileID: 2187190666749158144}
   m_Layer: 3
-  m_Name: Enemy
+  m_Name: EnemyTumbleweed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1742826188, guid: cf0390e91f5034114a7e9edfd4cc5c3d, type: 3}
+  m_Sprite: {fileID: 1680032992, guid: d79be298c1b044b3da58411cfb88dd04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,27 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8946914615007297320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8946914615007297317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435db5a445dd417d806d1d3a4c049ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack:
-    <Range>k__BackingField: 4
-    <Damage>k__BackingField: 2
-    <Layer>k__BackingField:
-      serializedVersion: 2
-      m_Bits: 64
-    cooldown: 3
-  experience: 50
+  m_Constraints: 4
 --- !u!114 &8946914615007297322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +123,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &7079131910664029048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946914615007297317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9307b189e92042f08b76245daff77ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack:
+    <Range>k__BackingField: 0.5
+    <Damage>k__BackingField: 2
+    <Layer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 64
+    cooldown: 2
+  experience: 2
 --- !u!114 &4990052345879584731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +162,8 @@ MonoBehaviour:
     <Level>k__BackingField: 0
     <MaxLevel>k__BackingField: 0
     <CurrentExperience>k__BackingField: 0
---- !u!70 &2495584986975960772
-CapsuleCollider2D:
+--- !u!58 &2187190666749158144
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,6 +175,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.081724465, y: -0.03771901}
-  m_Size: {x: 0.6698843, y: 0.9662286}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5588235

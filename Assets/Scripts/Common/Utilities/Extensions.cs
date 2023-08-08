@@ -14,7 +14,7 @@ namespace Common.Utilities
         {
             foreach(Object o in objects){
                 if(o == null)
-                    throw new NullReferenceException($"In {sender.name}:{o.GetType().Name} is null");
+                    Debug.LogWarning($"In {sender.name}:{o.GetType().Name} is null");
             }
         }
     }

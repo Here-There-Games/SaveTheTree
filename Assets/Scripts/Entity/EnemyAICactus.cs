@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class EnemyAI : MonoBehaviour, ITakeDamage, IFloat
+    public class EnemyAICactus : MonoBehaviour, IDead, IFloat
     {
         public float Value => experience;
 
@@ -41,15 +41,19 @@ namespace Entity
 
         private void FixedUpdate()
         {
+            if(treeTransform == null)
+                return;
             Vector2 direction = treeTransform.position - enemyTransform.position;
 
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
                 controllable.Move(Vector2.zero);
 
-                if(attack.TryAttack()){
+                if(attack.Can){
                     RaycastHit2D hit =
                         Physics2D.Raycast(enemyTransform.position, direction, attack.Range, attack.Layer);
-                    hit.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                    if(hit.collider != null && attack.TryAttack(hit.collider)){
+                        hit.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                    }
                 }
             }
             else{
@@ -62,7 +66,7 @@ namespace Entity
             stat.Health.Spend(damageI.Damage);
         }
 
-        private void Dead()
+        public void Dead()
         {
             tree.GetComponent<StatHandle>().Level.AddExperience(this);
             Destroy(gameObject);

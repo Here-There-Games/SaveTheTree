@@ -6,7 +6,7 @@ namespace Mechanics
     public class Weapon : MonoBehaviour, IWeapon
     {
         [SerializeField] private EntityAttack attack;
-        [field: SerializeField] public bool CanRotate { get; private set; } 
+        [field: SerializeField] public bool CanRotate { get; private set; }
 
         private void Awake()
         {
@@ -21,15 +21,22 @@ namespace Mechanics
 
         public void Shoot(Vector2 direction)
         {
-            if(attack.TryAttack()){
-                RaycastHit2D hit2D = 
+            if(attack.Can){
+                RaycastHit2D hit =
                     Physics2D.Raycast(transform.position, direction, attack.Range, attack.Layer);
 
-                if(hit2D.collider == null || !hit2D.transform){
-                    Debug.Log("Hit is not touching");
-                    return;
+                if(hit.collider != null && attack.TryAttack(hit.collider)){
+                    Debug.Log($"Hit {hit}");
+                    Debug.Log($"Hit {hit.collider}");
+                    Debug.Log($"Hit {hit.rigidbody}");
+                    Debug.Log($"Hit {hit.distance}");
+                    // hit2D.transform.gameObject.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                    // hit2D.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                    Debug.Log($"Hit {hit.collider.name} and {hit.transform.name}");
                 }
-                hit2D.collider.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                else{
+                    Debug.Log($"Hit is not touches");
+                }
             }
         }
     }
