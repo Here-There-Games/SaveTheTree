@@ -162,20 +162,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "0ebdb3e886454fff9efe5e49053a62ab"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "ed89af6aff90405e98e805bf69ed5da4"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "1a91efd4b29c445aada659ba37476041"
                 },
                 "m_SlotId": 2
@@ -241,20 +227,6 @@
                     "m_Id": "f4fa4e648a8e4c398f5c994b5ec1ec61"
                 },
                 "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "40a34d3a2f30400bb5f51e1088d92dba"
-                },
-                "m_SlotId": 7
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "09922e4ebd0948db93ae464b51142259"
-                },
-                "m_SlotId": 3
             }
         },
         {
@@ -409,6 +381,20 @@
                     "m_Id": "0ebdb3e886454fff9efe5e49053a62ab"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "793c5e3dffa04970ba89a2794c930dbd"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "ed89af6aff90405e98e805bf69ed5da4"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -722,8 +708,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": -8.799967765808106,
-            "y": -371.2000427246094
+            "x": 194.4000244140625,
+            "y": -354.3999938964844
         },
         "m_Blocks": [
             {
@@ -739,8 +725,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": -8.799967765808106,
-            "y": -171.1999969482422
+            "x": 194.4000244140625,
+            "y": -148.00001525878907
         },
         "m_Blocks": [
             {
@@ -1739,13 +1725,13 @@
     ],
     "synonyms": [],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
     },
     "m_TextureType": 0,
-    "m_NormalMapSpace": 1,
+    "m_NormalMapSpace": 0,
     "m_EnableGlobalMipBias": true
 }
 
@@ -4171,8 +4157,8 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.009999999776482582,
-    "m_FloatType": 1,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.00009999999747378752,
         "y": 0.009999999776482582
@@ -4725,7 +4711,7 @@
         "plus"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []

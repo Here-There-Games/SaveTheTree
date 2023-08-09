@@ -1,21 +1,21 @@
 using System;
-using System.Collections.Generic;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Common.Utilities
 {
     public static class Extensions
     {
-        public static void CheckForNullComponents(Object sender, Component[] components)
-            => CheckForNull(sender, components);
+        public static void With<T>(this T self, Action<T> apply) 
+            => apply.Invoke(self);
 
-        private static void CheckForNull(Object sender, IEnumerable<Object> objects)
+        public static void With<T>(this T self, Action<T> apply, bool when)
         {
-            foreach(Object o in objects){
-                if(o == null)
-                    throw new NullReferenceException($"In {sender.name}:{o.GetType().Name} is null");
-            }
+            if(when)
+                With(self,apply);
+        }
+        public static void With<T>(this T self, Action<T> apply, Func<bool> when)
+        {
+            if(when())
+                With(self,apply);
         }
     }
 }

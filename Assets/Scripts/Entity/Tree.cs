@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common.Utilities;
+using Interfaces;
 using Mechanics;
 using UnityEngine;
 
 namespace Entity
 {
-    public class Tree : MonoBehaviour
+    public class Tree : MonoBehaviour, IDead
     {
         [SerializeField] private List<TreeStage> stages;
 
@@ -18,8 +19,6 @@ namespace Entity
         {
             statHandle = GetComponent<StatHandle>();
             renderer = GetComponent<SpriteRenderer>();
-            
-            Extensions.CheckForNullComponents(this, new Component[]{ renderer, statHandle});
 
             EntityLevel level = statHandle.Level;
             
@@ -45,6 +44,11 @@ namespace Entity
             }
         }
 
+        public void Dead()
+        {
+            Time.timeScale = 0;
+            Destroy(gameObject);
+        }
     }
 
     [System.Serializable]
