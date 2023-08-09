@@ -20,7 +20,6 @@ namespace Entity
                                             if(hp <= 0)
                                                 Dead();
                                         };
-            Extensions.CheckForNullComponents(this, new[]{ (Component)iDead });
         }
 
         public void TakeDamage(IDamage damageI)

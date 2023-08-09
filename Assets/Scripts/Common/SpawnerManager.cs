@@ -6,7 +6,8 @@ namespace Common
 {
     public class SpawnerManager : MonoBehaviour
     {
-        [SerializeField] private EnemyAITumbleweed enemy;
+        [SerializeField] private EnemyAI enemy1;
+        [SerializeField] private EnemyAI enemy2;
         [SerializeField] private float cooldown;
         [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
 
@@ -30,13 +31,23 @@ namespace Common
         {
             if(tree is null)
                 return;
-            Vector3 randomPosition = GetRandomPosition();
+            Spawn(enemy1,GetPositionForSpawn(),Quaternion.identity);
+            Spawn(enemy2,GetPositionForSpawn(),Quaternion.identity);
+        }
 
+        private static EnemyAI Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
+        {
+            EnemyAI enemyAI = Instantiate(enemy, position, rotation);
+            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            return enemyAI;
+        }
+
+        private Vector3 GetPositionForSpawn()
+        {
+            Vector3 randomPosition = GetRandomPosition();
             while(InCameraFOV(randomPosition))
                 randomPosition = GetRandomPosition();
-
-            EnemyAITumbleweed enemyAICactus = Instantiate(enemy, randomPosition, Quaternion.identity);
-            enemyAICactus.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            return randomPosition;
         }
 
         private Vector3 GetRandomPosition()

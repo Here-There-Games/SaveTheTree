@@ -19,8 +19,6 @@ namespace Entity
         {
             statHandle = GetComponent<StatHandle>();
             renderer = GetComponent<SpriteRenderer>();
-            
-            Extensions.CheckForNullComponents(this, new Component[]{ renderer, statHandle});
 
             EntityLevel level = statHandle.Level;
             

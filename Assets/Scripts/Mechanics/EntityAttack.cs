@@ -1,4 +1,3 @@
-using System;
 using Common;
 using Interfaces;
 using UnityEngine;
@@ -6,23 +5,25 @@ using UnityEngine.Events;
 
 namespace Mechanics
 {
-    [Serializable]
-    public class EntityAttack: IDamage
+    [System.Serializable]
+    public class EntityAttack : IDamage
     {
         public event UnityAction OnAttack;
+        public event UnityAction OnReadyAttack;
 
-        public bool Can => timer.Stopped;
-        [field: SerializeField] public float Range { get; private set; }
+        public bool CanAttack => timer.Stopped;
         [field: SerializeField] public float Damage { get; private set; }
         [field: SerializeField] public LayerMask Layer { get; private set; }
-        
+
         [SerializeField] private float cooldown;
 
-        private Timer timer;
+        protected Timer timer;
 
         public void Init(MonoBehaviour mono)
         {
             timer = new Timer(mono, cooldown);
+            timer.OnStart += () => OnAttack?.Invoke();
+            timer.OnEnd += () => OnReadyAttack?.Invoke();
         }
 
         public bool TryAttack(Collider2D collider)
@@ -36,10 +37,14 @@ namespace Mechanics
             return false;
         }
 
-        private void Attack(Collider2D collider)
-        {
-            collider.GetComponent<ITakeDamage>().TakeDamage(this);
-            OnAttack?.Invoke();
-        }
+        private void Attack(Collider2D collider) 
+            => collider.GetComponent<ITakeDamage>().TakeDamage(this);
+    }
+
+    [System.Serializable]
+    public class EntityAttackRange : EntityAttack
+    {
+        [field: SerializeField] public float Range { get; private set; }
+        [field: SerializeField] public Transform Point { get; private set; }
     }
 }

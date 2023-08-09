@@ -1,5 +1,4 @@
 ﻿using Common;
-using Common.Utilities;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,7 +18,6 @@ namespace Mechanics
         {
             weapon = GetComponentInChildren<IWeapon>();
             controllable = GetComponent<IControllable>();
-            Extensions.CheckForNullComponents(this, new Component[]{ (Component)weapon, (Component)controllable });
         }
 
         private void Start()
