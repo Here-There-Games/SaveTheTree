@@ -1247,12 +1247,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack:
-    <Damage>k__BackingField: 15
+    <Damage>k__BackingField: 500
     <Layer>k__BackingField:
       serializedVersion: 2
-      m_Bits: 64
-    cooldown: 2
-    <Range>k__BackingField: 1
+      m_Bits: 8
+    cooldown: 0
+    <Range>k__BackingField: 10
     <Point>k__BackingField: {fileID: 366101947}
   <CanRotate>k__BackingField: 1
 --- !u!212 &1008755324
@@ -16809,10 +16809,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76a1d35e9a4664b679c63f0be2356e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 8946914615007297320, guid: 871d6a9a1167339408a6811327418a7f, type: 3}
-  enemy2: {fileID: 7079131910664029048, guid: e072a3deef984f544a1733b795de1dbb, type: 3}
-  cooldown: 3
   cameraOffset: {x: 9, y: 5}
+  waves: []
+  currentWave:
+    <Enemy>k__BackingField: {fileID: 8946914615007297320, guid: 871d6a9a1167339408a6811327418a7f, type: 3}
+    count: 2
+    cooldown: 2
+  enemiesCanSpawn:
+  - {fileID: 8946914615007297320, guid: 871d6a9a1167339408a6811327418a7f, type: 3}
+  - {fileID: 7079131910664029048, guid: e072a3deef984f544a1733b795de1dbb, type: 3}
 --- !u!1 &1526549186
 GameObject:
   m_ObjectHideFlags: 0

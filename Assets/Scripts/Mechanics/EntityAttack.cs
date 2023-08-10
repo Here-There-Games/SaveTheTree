@@ -40,11 +40,4 @@ namespace Mechanics
         private void Attack(Collider2D collider) 
             => collider.GetComponent<ITakeDamage>().TakeDamage(this);
     }
-
-    [System.Serializable]
-    public class EntityAttackRange : EntityAttack
-    {
-        [field: SerializeField] public float Range { get; private set; }
-        [field: SerializeField] public Transform Point { get; private set; }
-    }
 }
