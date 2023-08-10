@@ -48,7 +48,7 @@ namespace Mechanics
         private void FireOnPerformed(InputAction.CallbackContext context)
         {
             if(context.performed)
-                weapon.Shoot(direction);
+                weapon.Shoot(CalculateRotateForWeapon());
         }
 
         private Vector2 CalculateRotateForWeapon()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class EnemyAITumbleweed : EnemyAI
+    public class Tumbleweed : EnemyAI
     {
         [SerializeField] private EntityAttack attack;
 

@@ -1,45 +1,89 @@
+using System.Collections.Generic;
 using Entity;
 using UnityEngine;
-using Tree = Entity.Tree;
+using Random = UnityEngine.Random;
 
 namespace Common
 {
-    public class SpawnerManager : MonoBehaviour
+    public class SpawnerManager : BaseSingleton<SpawnerManager>
     {
-        [SerializeField] private EnemyAI enemy1;
-        [SerializeField] private EnemyAI enemy2;
-        [SerializeField] private float cooldown;
+        public int WaveCount { get; private set; }
+
         [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
+        [SerializeField] private EnemyAI[] enemiesCanSpawn;
+        [SerializeField] private float cooldown = 2;
+        [SerializeField] private float cooldownWhenEndWave = 3;
 
-        private Camera mainCamera;
+        private Wave currentWave;
         private Timer timer;
+        private Timer waveTimer;
+        private Camera mainCamera;
+        private EnemyAI enemyForCurrentSpawn;
         private Transform player;
-        private Tree tree;
+        private List<EnemyAI> enemiesSpawned;
 
-        private void Awake()
+        protected override void Initialize()
         {
             player = FindObjectOfType<Player>().transform;
-            tree = FindObjectOfType<Tree>();
             mainCamera = Camera.main;
+
+            currentWave = GenerateWaveDict();
             timer = new Timer(this, cooldown);
-            timer.OnEnd += timer.Start;
-            timer.OnStart += Spawn;
+            timer.OnStart += StartCooldown;
+            timer.OnEnd += EndCooldown;
+            
+            waveTimer = new Timer(this, cooldownWhenEndWave);
+            waveTimer.OnEnd += () =>
+                                   {
+                                       currentWave = GenerateWaveDict();
+                                       timer.Start();
+                                   };
+            
+            enemiesSpawned = new List<EnemyAI>();
+            
             timer.Start();
         }
 
-        private void Spawn()
+        private void StartCooldown()
         {
-            if(tree is null)
-                return;
-            Spawn(enemy1,GetPositionForSpawn(),Quaternion.identity);
-            Spawn(enemy2,GetPositionForSpawn(),Quaternion.identity);
+            enemyForCurrentSpawn = GetEnemyForSpawn();
+
+            if(currentWave.CanSpawn(enemyForCurrentSpawn)){
+                EnemyAI spawned = currentWave.Spawn(enemyForCurrentSpawn, GetPositionForSpawn(), Quaternion.identity);
+                spawned.DiedEvent += CheckEnemyDie;
+                enemiesSpawned.Add(spawned);
+            }
         }
 
-        private static EnemyAI Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
+        private void EndCooldown()
         {
-            EnemyAI enemyAI = Instantiate(enemy, position, rotation);
-            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            return enemyAI;
+            if(!currentWave.CanSpawn(enemyForCurrentSpawn))
+                return;
+
+            timer.Start();
+        }
+
+        private void CheckEnemyDie()
+        {
+            if(enemiesSpawned.Count - 1 == 0)
+                waveTimer.Start();
+            enemiesSpawned.RemoveAt(0);
+        }
+
+        private EnemyAI GetEnemyForSpawn()
+        {
+            return enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
+        }
+        
+        private Wave GenerateWaveDict()
+        {
+            Dictionary<EnemyAI, int> enemies = new Dictionary<EnemyAI, int>{
+                { enemiesCanSpawn[0], Random.Range(1, 10) },
+                { enemiesCanSpawn[1], Random.Range(1, 10) }
+            };
+            Wave newWave = new Wave(enemies);
+            WaveCount++;
+            return newWave;
         }
 
         private Vector3 GetPositionForSpawn()
@@ -63,5 +107,28 @@ namespace Common
             Vector3 viewportPoint = mainCamera.WorldToViewportPoint(position);
             return viewportPoint is{ z: > 0, x: > 0 and < 1, y: > 0 and < 1 };
         }
+    }
+
+    [System.Serializable]
+    public class Wave
+    {
+        private Dictionary<EnemyAI, int> enemies;
+
+        public Wave(Dictionary<EnemyAI, int> enemies) 
+            => this.enemies = enemies;
+
+        public EnemyAI Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
+        {
+            EnemyAI enemyAI = Object.Instantiate(enemy, position, rotation);
+            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            
+            if(enemies.TryGetValue(enemy, out int value))
+                enemies[enemy] = value - 1;
+            
+            return enemyAI;
+        }
+
+        public bool CanSpawn(EnemyAI enemy) 
+            => enemies.TryGetValue(enemy, out int value) && value > 0;
     }
 }
