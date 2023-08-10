@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1beac72e02432448f886a518cd536337
+guid: b079cec75783f4243a7b57a80914d932
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SettingsButton_0
+      name: kameni_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 8
-        width: 27
-        height: 11
+        x: 50
+        y: 15
+        width: 40
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 994480514e2ea4fefac71ac18b6a7582
-      internalID: -206042718
+      spriteID: 07d376e08904c415bb01f5fa1fd60d50
+      internalID: 1595632742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kameni_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 44
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb2c1a7745fe4881ab7c5b8eb47727b
+      internalID: -1817182785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kameni_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 16
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9460b29877026425cb8148c1bd8b8717
+      internalID: 632220021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kameni_3
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 3
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57cc0d7dce874837883ea1de0a433af
+      internalID: 1587075843
       vertices: []
       indices: 
       edges: []
@@ -136,7 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SettingsButton_0: -206042718
+      kameni_0: 1595632742
+      kameni_1: -1817182785
+      kameni_2: 632220021
+      kameni_3: 1587075843
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
