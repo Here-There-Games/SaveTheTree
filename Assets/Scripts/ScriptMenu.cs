@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Skript_Menu : MonoBehaviour
-
+public class ScriptMenu : MonoBehaviour
 {
     public void LoadLevel()
     {
