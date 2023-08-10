@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entity
 {
-    public class EnemyAICactus : EnemyAI
+    public class Cactus : EnemyAI
     {
         [SerializeField] private EntityAttackRange attack;
 

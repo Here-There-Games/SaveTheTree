@@ -4,11 +4,14 @@ using Common.Utilities;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Entity
 {
     public class Tree : MonoBehaviour, IDead
     {
+        public event UnityAction DiedEvent;
+        
         [SerializeField] private List<TreeStage> stages;
 
         private StatHandle statHandle;
@@ -25,12 +28,13 @@ namespace Entity
             level.OnLevelUp += OnChangeState;
             OnChangeState(level.Level);
         }
+
         private void UpdateStage()
         {
             renderer.sprite = currentStage.Sprite;
             statHandle.Health.UpgradeAttribute(currentStage.AddHP);
         }
-        
+
         private void OnChangeState(int newLevel)
         {
             if(currentStage != null){
@@ -47,6 +51,7 @@ namespace Entity
         public void Dead()
         {
             Time.timeScale = 0;
+            DiedEvent?.Invoke();
             Destroy(gameObject);
         }
     }

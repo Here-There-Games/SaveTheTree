@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Entity;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,62 +7,63 @@ namespace Common
 {
     public class SpawnerManager : MonoBehaviour
     {
-        [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
-        [SerializeField] private Wave[] waves;
-        [SerializeField] private Wave currentWave;
-        [SerializeField] private EnemyAI[] enemiesCanSpawn;
+        public int WaveCount { get; private set; }
 
+        [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
+        [SerializeField] private EnemyAI[] enemiesCanSpawn;
+        [SerializeField] private float cooldown;
+        [SerializeField] private float cooldownWhenEndWave;
+
+        [SerializeField] private Wave currentWave;
+
+        private Timer timer;
+        private Timer waveTimer;
         private Camera mainCamera;
+        private EnemyAI enemyForCurrentSpawn;
         private Transform player;
-        private bool needGenerateWave;
+        private List<EnemyAI> enemiesSpawned;
 
         private void Awake()
         {
             player = FindObjectOfType<Player>().transform;
             mainCamera = Camera.main;
 
-            if(waves.Length > 0)
-                currentWave = waves[0];
-            else
-                needGenerateWave = true;
+            currentWave = GenerateWaveDict();
+            timer = new Timer(this, cooldown);
 
-            currentWave.Initialize(this);
-            currentWave.TimerSpawning.OnEnd += EndCooldown;
-            currentWave.TimerSpawning.OnStart += StartCooldown;
-            currentWave.TimerSpawning.Start();
+            timer.OnStart += StartCooldown;
+            timer.OnEnd += EndCooldown;
+            timer.Start();
+            waveTimer = new Timer(this, cooldownWhenEndWave);
+            
         }
 
         private void StartCooldown()
         {
-            if(!currentWave.CanSpawn()){
-                if(needGenerateWave){
-                    EnemyAI enemyForWave = enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
-                    Wave newWave = new Wave(enemyForWave, Random.Range(1, 5), 1, this);
-                    newWave.Subscribe(StartCooldown, EndCooldown);
-                    currentWave = newWave;
-                }
-            }
+            enemyForCurrentSpawn = enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
 
-            Spawn(currentWave.Enemy, GetPositionForSpawn(), Quaternion.identity);
+            if(currentWave.CanSpawn(enemyForCurrentSpawn))
+                currentWave.Spawn(enemyForCurrentSpawn, GetPositionForSpawn(), Quaternion.identity);
         }
 
         private void EndCooldown()
         {
-            currentWave.TimerSpawning.Start();
+            if(!currentWave.CanSpawn(enemyForCurrentSpawn))
+                currentWave = GenerateWaveDict();
+
+            timer.Start();
         }
 
-        private static EnemyAI Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
+        private Wave GenerateWaveDict()
         {
-            EnemyAI enemyAI = Instantiate(enemy, position, rotation);
-            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            return enemyAI;
-        }
-
-        private static EnemyAI Spawn(Wave wave, Vector3 position, Quaternion rotation)
-        {
-            EnemyAI enemyAI = Instantiate(wave.Enemy, position, rotation);
-            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            return enemyAI;
+            Dictionary<EnemyAI, int> enemies = new Dictionary<EnemyAI, int>{
+                { enemiesCanSpawn[0], Random.Range(1, 10) },
+                { enemiesCanSpawn[1], Random.Range(1, 10) }
+            };
+            Wave newWave = new Wave(enemies);
+            WaveCount++;
+            Debug.Log($"Generate a {WaveCount} wave.");
+            return newWave;
         }
 
         private Vector3 GetPositionForSpawn()
@@ -91,36 +92,23 @@ namespace Common
     [System.Serializable]
     public class Wave
     {
-        [field: SerializeField] public EnemyAI Enemy { get; private set; }
-        public Timer TimerSpawning { get; private set; }
+        public Dictionary<EnemyAI, int> Enemies;
 
-        [SerializeField] private int count;
-        [SerializeField] private int cooldown;
+        public Wave(Dictionary<EnemyAI, int> enemies) 
+            => Enemies = enemies;
 
-        public Wave(EnemyAI enemy, int count, int cooldown, MonoBehaviour mono)
+        public void Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
         {
-            Enemy = enemy;
-            this.count = count;
-            this.cooldown = cooldown;
-            Initialize(mono);
+            EnemyAI enemyAI = Object.Instantiate(enemy, position, rotation);
+            enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            
+            if(Enemies.TryGetValue(enemy, out int value))
+                Enemies[enemy] = value - 1;
+            
+            Debug.Log($"You spawn {enemy}, {value}");
         }
 
-        public void Subscribe(Action startTimer, Action endTimer)
-        {
-            TimerSpawning.OnEnd += endTimer;
-            TimerSpawning.OnStart += startTimer;
-        }
-
-        public void Initialize(MonoBehaviour mono)
-        {
-            TimerSpawning = new Timer(mono, cooldown);
-        }
-
-        public bool CanSpawn()
-        {
-            bool result = count > 0;
-            count -= 1;
-            return result;
-        }
+        public bool CanSpawn(EnemyAI enemy) 
+            => Enemies.TryGetValue(enemy, out int value) && value > 0;
     }
 }

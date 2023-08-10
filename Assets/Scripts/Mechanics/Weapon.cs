@@ -22,17 +22,11 @@ namespace Mechanics
         public void Shoot(Vector2 direction)
         {
             Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
-            Collider2D[] hits = Physics2D.OverlapCircleAll(attack.Point.position, attack.Range, attack.Layer);
 
-            if(hits.Length > 0)
-                foreach(Collider2D colHit in hits)
-                    attack.TryAttack(colHit);
-            else
-                Debug.Log("Hit is not touched");
-            /*if(hit != null)
+            if(hit != null)
                 attack.TryAttack(hit);
             else
-                Debug.Log("Hit is not touched");*/
+                Debug.Log("Hit is not touched");
         }
 
 #if UNITY_EDITOR
