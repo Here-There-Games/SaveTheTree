@@ -7,5 +7,7 @@ namespace Mechanics
     {
         [field: SerializeField] public float Range { get; private set; }
         [field: SerializeField] public Transform Point { get; private set; }
+        [field: SerializeField] public Projective Projective { get; private set; }
+
     }
 }

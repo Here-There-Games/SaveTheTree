@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Common.Utilities;
+using Common;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
@@ -50,7 +50,7 @@ namespace Entity
 
         public void Dead()
         {
-            Time.timeScale = 0;
+            MenuManager.Instance.GameOver();
             DiedEvent?.Invoke();
             Destroy(gameObject);
         }

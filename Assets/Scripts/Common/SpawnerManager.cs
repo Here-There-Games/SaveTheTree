@@ -29,22 +29,22 @@ namespace Common
 
             currentWave = GenerateWaveDict();
             timer = new Timer(this, cooldown);
-            timer.OnStart += StartCooldown;
-            timer.OnEnd += EndCooldown;
-            
+            timer.StartEvent += StartEventCooldown;
+            timer.EndEvent += EndEventCooldown;
+
             waveTimer = new Timer(this, cooldownWhenEndWave);
-            waveTimer.OnEnd += () =>
+            waveTimer.EndEvent += () =>
                                    {
                                        currentWave = GenerateWaveDict();
                                        timer.Start();
                                    };
-            
+
             enemiesSpawned = new List<EnemyAI>();
-            
+
             timer.Start();
         }
 
-        private void StartCooldown()
+        private void StartEventCooldown()
         {
             enemyForCurrentSpawn = GetEnemyForSpawn();
 
@@ -55,7 +55,7 @@ namespace Common
             }
         }
 
-        private void EndCooldown()
+        private void EndEventCooldown()
         {
             if(!currentWave.CanSpawn(enemyForCurrentSpawn))
                 return;
@@ -74,12 +74,12 @@ namespace Common
         {
             return enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
         }
-        
+
         private Wave GenerateWaveDict()
         {
             Dictionary<EnemyAI, int> enemies = new Dictionary<EnemyAI, int>{
-                { enemiesCanSpawn[0], Random.Range(1, 10) },
-                { enemiesCanSpawn[1], Random.Range(1, 10) }
+                { enemiesCanSpawn[0], WaveCount == 0 ? Random.Range(1, 3) : WaveCount * 2 - 1 },
+                { enemiesCanSpawn[1], WaveCount == 0 ? 1 : WaveCount - 1 }
             };
             Wave newWave = new Wave(enemies);
             WaveCount++;
@@ -114,21 +114,21 @@ namespace Common
     {
         private Dictionary<EnemyAI, int> enemies;
 
-        public Wave(Dictionary<EnemyAI, int> enemies) 
+        public Wave(Dictionary<EnemyAI, int> enemies)
             => this.enemies = enemies;
 
         public EnemyAI Spawn(EnemyAI enemy, Vector3 position, Quaternion rotation)
         {
             EnemyAI enemyAI = Object.Instantiate(enemy, position, rotation);
             enemyAI.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            
+
             if(enemies.TryGetValue(enemy, out int value))
                 enemies[enemy] = value - 1;
-            
+
             return enemyAI;
         }
 
-        public bool CanSpawn(EnemyAI enemy) 
+        public bool CanSpawn(EnemyAI enemy)
             => enemies.TryGetValue(enemy, out int value) && value > 0;
     }
 }

@@ -6,15 +6,16 @@ namespace Common
 {
     public class Timer
     {
-        public event Action OnStart;
-        public event Action<float> OnUpdated;
-        public event Action OnTimeChanged;
-        public event Action OnEnd;
+        public event Action StartEvent;
+        public event Action<float> UpdatedEvent;
+        public event Action<float> OnTimeChanged;
+        public event Action EndEvent;
 
         public bool Stopped { get; private set; }
+        public float Normalized => RemainingTime / Time;
 
-        private float time;
-        private float remainingTime;
+        public float Time{ get; private set; }
+        public float RemainingTime{ get; private set; }
         private IEnumerator countdown;
         private readonly MonoBehaviour context;
 
@@ -29,14 +30,14 @@ namespace Common
 
         public void ChangeTime(float newValue)
         {
-            time = newValue;
-            remainingTime = newValue;
-            OnTimeChanged?.Invoke();
+            Time = newValue;
+            RemainingTime = newValue;
+            OnTimeChanged?.Invoke(newValue);
         }
 
         public void Start()
         {
-            remainingTime = time;
+            RemainingTime = Time;
             countdown = Countdown();
             context.StartCoroutine(countdown);
         }
@@ -50,16 +51,16 @@ namespace Common
         private IEnumerator Countdown()
         {
             Stopped = false;
-            OnStart?.Invoke();
+            StartEvent?.Invoke();
 
-            while(remainingTime >= 0){
-                remainingTime -= Time.deltaTime;
-                OnUpdated?.Invoke(remainingTime / time);
+            while(RemainingTime >= 0){
+                RemainingTime -= UnityEngine.Time.deltaTime;
+                UpdatedEvent?.Invoke(RemainingTime / Time);
                 yield return null;
             }
 
             Stopped = true;
-            OnEnd?.Invoke();
+            EndEvent?.Invoke();
         }
     }
 }

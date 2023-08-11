@@ -10,10 +10,12 @@ namespace Entity
         private new Rigidbody2D rigidbody;
         private Transform enemyTransform;
         private Transform treeTransform;
+        private Animator animator;
 
         protected override void InitializeAwake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
 
             treeTransform = tree.transform;
             enemyTransform = transform;
@@ -26,12 +28,9 @@ namespace Entity
             Vector2 direction = treeTransform.position - enemyTransform.position;
 
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
-                if(attack.CanAttack){
-                    RaycastHit2D hit =
-                        Physics2D.Raycast(enemyTransform.position, direction, attack.Range, attack.Layer);
-
-                    if(hit.collider != null)
-                        attack.TryAttack(hit.collider);
+                if(attack.TryAttack()){
+                    Projective projective = Instantiate(attack.Projective, attack.Point.position, Quaternion.identity);
+                    projective.InitBullet(direction,attack,attack.Layer);
                 }
 
                 return Vector2.zero;

@@ -8,7 +8,7 @@ namespace Mechanics
     [System.Serializable]
     public class EntityAttack : IDamage
     {
-        public event UnityAction OnAttack;
+        public event UnityAction AttackEvent;
         public event UnityAction OnReadyAttack;
 
         public bool CanAttack => timer.Stopped;
@@ -22,22 +22,19 @@ namespace Mechanics
         public void Init(MonoBehaviour mono)
         {
             timer = new Timer(mono, cooldown);
-            timer.OnStart += () => OnAttack?.Invoke();
-            timer.OnEnd += () => OnReadyAttack?.Invoke();
+            timer.StartEvent += () => AttackEvent?.Invoke();
+            timer.EndEvent += () => OnReadyAttack?.Invoke();
         }
 
-        public bool TryAttack(Collider2D collider)
+        public bool TryAttack()
         {
             if(timer.Stopped){
-                Attack(collider);
+                AttackEvent?.Invoke();
                 timer.Start();
                 return true;
             }
 
             return false;
         }
-
-        private void Attack(Collider2D collider) 
-            => collider.GetComponent<ITakeDamage>().TakeDamage(this);
     }
 }

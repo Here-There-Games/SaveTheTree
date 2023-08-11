@@ -5,13 +5,9 @@ namespace Mechanics
 {
     public class Weapon : MonoBehaviour, IWeapon
     {
-        [SerializeField] private EntityAttackRange attack;
+        [SerializeField] private EntityAttack attack;
         [field: SerializeField] public bool CanRotate { get; private set; }
-
-        private void Awake()
-        {
-            attack.Init(this);
-        }
+        [field: SerializeField] public bool CanAttack { get; private set; }
 
         public void RotateWeapon(Vector2 direction)
         {
@@ -21,20 +17,13 @@ namespace Mechanics
 
         public void Shoot(Vector2 direction)
         {
-            Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
-
-            if(hit != null)
-                attack.TryAttack(hit);
-            else
-                Debug.Log("Hit is not touched");
+            
         }
 
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attack.Point.position, attack.Range);
+            if(col != null && !col.GetComponent<Tree>() && attack.TryAttack())
+                col.GetComponent<ITakeDamage>().TakeDamage(attack);
         }
-#endif
     }
 }

@@ -140,7 +140,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 2
     <Layer>k__BackingField:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 192
     cooldown: 2
 --- !u!114 &4990052345879584731
 MonoBehaviour:

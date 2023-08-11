@@ -20,7 +20,7 @@ namespace Common
 
         protected virtual void Initialize()
         {
-            Debug.LogError(typeof(T).Name + " initialized");
+            Debug.Log(typeof(T).Name + " initialized");
         }
     }
 }
