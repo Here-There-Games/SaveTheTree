@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gawnohp2_0
+      name: hp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 876ebecd22a874cf8b0ea5436ccbf38d
-      internalID: -106089212
+      spriteID: 8dacde5d015a2114ea4166ddb13c8f63
+      internalID: -787515083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gawnohp2_1
+      name: hp_1
       rect:
         serializedVersion: 2
         x: 12
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 535e7235a819743b1ba3416236edb838
-      internalID: 2002910101
+      spriteID: 65e3e95f5ed89774abbb81ae59e2239b
+      internalID: 1781571988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gawnohp2_2
+      name: hp_2
       rect:
         serializedVersion: 2
         x: 24
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71862fe13ddd64551aae3bf76bf7b23a
-      internalID: -2021230765
+      spriteID: b784070775d608b428c7450500feba71
+      internalID: 882252738
       vertices: []
       indices: 
       edges: []
@@ -202,9 +202,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gawnohp2_0: -106089212
-      gawnohp2_1: 2002910101
-      gawnohp2_2: -2021230765
+      hp_0: -787515083
+      hp_1: 1781571988
+      hp_2: 882252738
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

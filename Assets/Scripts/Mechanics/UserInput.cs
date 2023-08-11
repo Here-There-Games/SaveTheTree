@@ -51,7 +51,7 @@ namespace Mechanics
         private void FireOnPerformed(InputAction.CallbackContext context)
         {
             if(context.performed)
-                animator.SetTrigger(attack);
+                weapon.Attack();
         }
 
         private Vector2 CalculateRotateForWeapon()
