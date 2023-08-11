@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-walking_down_0
+      name: player-idle
       rect:
         serializedVersion: 2
         x: 0
@@ -349,7 +349,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player-walking_down_0: 401512305
+      player-idle: 401512305
       player-walking_down_1: -1367037794
       player-walking_down_2: 59886989
       player-walking_down_3: -1634230383

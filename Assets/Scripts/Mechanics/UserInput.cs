@@ -13,9 +13,12 @@ namespace Mechanics
         private Vector2 direction;
         private IControllable controllable;
         private IWeapon weapon;
+        private Animator animator;
+        private static readonly int attack = Animator.StringToHash("Attack");
 
         private void Awake()
         {
+            animator = GetComponent<Animator>();
             weapon = GetComponentInChildren<IWeapon>();
             controllable = GetComponent<IControllable>();
         }
@@ -48,7 +51,7 @@ namespace Mechanics
         private void FireOnPerformed(InputAction.CallbackContext context)
         {
             if(context.performed)
-                weapon.Shoot(CalculateRotateForWeapon());
+                animator.SetTrigger(attack);
         }
 
         private Vector2 CalculateRotateForWeapon()
