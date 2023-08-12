@@ -12,15 +12,16 @@ namespace Common
         [SerializeField] private TMP_Text title;
 
         private Timer timerProgress;
-        
+        private CanvasGroup canvasGroup;
+
         public void ShowProgressBar(string titleBar, Timer timer)
         {
-            gameObject.SetActive(true);
-            timerProgress = timer;
+            Visible(true);
+            timerProgress = new Timer(this,timer);
             if(title != null && titleBar != null)
                 title.text = titleBar;
             timerProgress.UpdatedEvent += UpdateProgress;
-            timerProgress.EndEvent += () => gameObject.SetActive(false);
+            timerProgress.EndEvent += () => Visible(false);
             timerProgress.Start();
         }
 
@@ -33,6 +34,18 @@ namespace Common
                 textProgress.text = $"{timerProgress.RemainingTime:#.#}/{timerProgress.Time:#}";
             if(imageProgress != null)
                 imageProgress.fillAmount = timerProgress.Normalized;
+        }
+
+        protected override void Initialize()
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+            Visible(false);
+        }
+
+        private void Visible(bool visible)
+        {
+            canvasGroup.alpha = visible ? 1 : 0;
+            canvasGroup.blocksRaycasts = visible;
         }
     }
 }

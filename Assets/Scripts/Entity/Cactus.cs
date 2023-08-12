@@ -29,8 +29,9 @@ namespace Entity
 
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
                 if(attack.TryAttack()){
+                    Vector3 targetDirection = treeTransform.position - attack.Point.position;
                     Projective projective = Instantiate(attack.Projective, attack.Point.position, Quaternion.identity);
-                    projective.InitBullet(direction,attack,attack.Layer);
+                    projective.InitBullet(targetDirection,attack,attack.Layer);
                 }
 
                 return Vector2.zero;

@@ -30,7 +30,7 @@ namespace Entity
         {
             if(col.GetComponent<Tree>() || col.GetComponent<Player>()){
                 if(attack.TryAttack())
-                    col.GetComponent<ITakeDamage>().TakeDamage(attack);
+                    col.GetComponent<ITakeDamage>()?.TakeDamage(attack);
             }
         }
     }

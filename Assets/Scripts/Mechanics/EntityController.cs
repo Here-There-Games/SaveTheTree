@@ -9,10 +9,14 @@ namespace Mechanics
         [SerializeField] private float speed;
     
         private new Rigidbody2D rigidbody;
+        private Animator animator;
+        private static readonly int vertical = Animator.StringToHash("Vertical");
+        private static readonly int horizontal = Animator.StringToHash("Horizontal");
 
         private void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
 
             if(rigidbody.gravityScale != 0)
                 rigidbody.gravityScale = 0;
@@ -20,7 +24,10 @@ namespace Mechanics
 
         public void Move(Vector2 direction)
         {
-            rigidbody.velocity = direction.normalized * speed;
+            direction = direction.normalized;
+            rigidbody.velocity = direction * speed;
+            animator.SetFloat(horizontal, direction.x);
+            animator.SetFloat(vertical, direction.y);
         }
     }
 }

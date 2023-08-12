@@ -1,3 +1,4 @@
+using System;
 using Entity;
 using Interfaces;
 using UnityEngine;
@@ -9,6 +10,11 @@ namespace Mechanics
     {
         [SerializeField] private EntityAttackRange attack;
         [field: SerializeField] public bool CanRotate { get; private set; }
+
+        private void Awake()
+        {
+            attack.Init(this);
+        }
 
         public void RotateWeapon(Vector2 direction)
         {
@@ -26,21 +32,14 @@ namespace Mechanics
 
         public void Attack()
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(attack.Point.position, attack.Range, attack.Layer);
+            Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
 
-            if(attack.CanAttack && hits.Length > 0 && attack.TryAttack())
-                foreach(Collider2D hit in hits){
-                    if(hit != null && hit.GetComponent<EnemyAI>())
-                        hit.GetComponent<ITakeDamage>().TakeDamage(attack);
-                }
+            if(hit != null && attack.TryAttack())
+                hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+            else
+                Debug.Log("Hit is not touching");
         }
-
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if(col != null && !col.GetComponent<Tree>()) /*&& attack.TryAttack())*/
-                col.GetComponent<ITakeDamage>().TakeDamage(attack);
-        }
-
+        
         private void Flip(bool flip)
         {
             Vector3 scale = transform.localScale;

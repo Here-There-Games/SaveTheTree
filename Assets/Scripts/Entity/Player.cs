@@ -24,25 +24,30 @@ namespace Entity
             stat = GetComponent<StatHandle>();
             
             timer = new Timer(this, cooldownToRespawn);
-            timer.EndEvent += Respawn;
+            timer.StartEvent += StartRespawn;
+            timer.EndEvent += EndRespawn;
         }
 
         public void Dead()
         {
-            FindObjectOfType<EnemyAI>().GetComponent<StatHandle>().Level.AddExperience(this);
-            // GlobalProgressBar.Instance.ShowProgressBar("Respawning", cooldownToRespawn, null, Respawn);
             GlobalProgressBar.Instance.ShowProgressBar("Respawning", timer);
             DiedEvent?.Invoke();
-            // gameObject.SetActive(false);
-            renderer.enabled = false;
         }
 
-        private void Respawn()
+        private void StartRespawn()
+        {
+            FindObjectOfType<EnemyAI>().GetComponent<StatHandle>().Level.AddExperience(this);
+            InputManager.Instance.InputControl.Player.Disable();
+            gameObject.SetActive(false);
+            // renderer.enabled = false;
+        }
+        private void EndRespawn()
         {
             transform.position = positionToRespawn.position;
-            renderer.enabled = true;
+            // renderer.enabled = true;
+            InputManager.Instance.InputControl.Player.Enable();
+            gameObject.SetActive(true);
             stat.Health.Add(stat.Health.MaxValue);        
-            // gameObject.SetActive(true);
         }
     }
 }

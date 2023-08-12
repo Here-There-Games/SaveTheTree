@@ -8,7 +8,7 @@ namespace Common
     {
         public event Action StartEvent;
         public event Action<float> UpdatedEvent;
-        public event Action<float> OnTimeChanged;
+        public event Action<float> TimeChangedEvent;
         public event Action EndEvent;
 
         public bool Stopped { get; private set; }
@@ -19,6 +19,13 @@ namespace Common
         private IEnumerator countdown;
         private readonly MonoBehaviour context;
 
+        public Timer(MonoBehaviour mono,Timer timer) : this(mono, timer.Time)
+        {
+            TimeChangedEvent = timer.TimeChangedEvent;
+            StartEvent = timer.StartEvent;
+            EndEvent = timer.EndEvent;
+            UpdatedEvent = timer.UpdatedEvent;
+        }
         public Timer(MonoBehaviour context, float time) : this(context)
             => ChangeTime(time);
 
@@ -32,7 +39,7 @@ namespace Common
         {
             Time = newValue;
             RemainingTime = newValue;
-            OnTimeChanged?.Invoke(newValue);
+            TimeChangedEvent?.Invoke(newValue);
         }
 
         public void Start()
