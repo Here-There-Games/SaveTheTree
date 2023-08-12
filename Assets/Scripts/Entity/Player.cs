@@ -14,13 +14,11 @@ namespace Entity
         [SerializeField] private float cooldownToRespawn;
         [SerializeField] private Transform positionToRespawn;
 
-        private new SpriteRenderer renderer;
         private Timer timer;
         private StatHandle stat;
 
         private void Awake()
         {
-            renderer = GetComponent<SpriteRenderer>();
             stat = GetComponent<StatHandle>();
             
             timer = new Timer(this, cooldownToRespawn);
@@ -39,12 +37,10 @@ namespace Entity
             FindObjectOfType<EnemyAI>().GetComponent<StatHandle>().Level.AddExperience(this);
             InputManager.Instance.InputControl.Player.Disable();
             gameObject.SetActive(false);
-            // renderer.enabled = false;
         }
         private void EndRespawn()
         {
             transform.position = positionToRespawn.position;
-            // renderer.enabled = true;
             InputManager.Instance.InputControl.Player.Enable();
             gameObject.SetActive(true);
             stat.Health.Add(stat.Health.MaxValue);        

@@ -1,4 +1,6 @@
-﻿namespace Common
+﻿using System;
+
+namespace Common
 {
     public class InputManager : BaseSingleton<InputManager>
     {
@@ -7,6 +9,12 @@
         protected override void Initialize()
         {
             InputControl = new ControllInput();
+            InputControl.Enable();            
+        }
+
+        private void OnDisable()
+        {
+            InputControl.Disable();
         }
 
         private void OnEnable()

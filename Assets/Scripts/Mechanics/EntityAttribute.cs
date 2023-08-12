@@ -7,7 +7,8 @@ namespace Mechanics
     [Serializable]
     public class EntityAttribute
     {
-        public event UnityAction<float> OnChangeValue;
+        public event UnityAction<float> ChangeValueEvent;
+        public event UnityAction<float> ChangeValueNormalizedEvent;
 
         [field: SerializeField] public float Value { get; private set; }
         [field: SerializeField] public float MaxValue { get; private set; }
@@ -48,7 +49,8 @@ namespace Mechanics
         private void CheckValue()
         {
             Value = Mathf.Clamp(Value, 0, MaxValue);
-            OnChangeValue?.Invoke(Value);
+            ChangeValueEvent?.Invoke(Value);
+            ChangeValueNormalizedEvent?.Invoke(Value / MaxValue);
         }
     }
 }

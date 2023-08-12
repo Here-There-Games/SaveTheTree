@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <experience>k__BackingField: 1
   attack:
-    <Damage>k__BackingField: 3
+    <Damage>k__BackingField: 1
     <Layer>k__BackingField:
       serializedVersion: 2
       m_Bits: 192
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Health>k__BackingField:
-    <Value>k__BackingField: 10
-    <MaxValue>k__BackingField: 10
+    <Value>k__BackingField: 3
+    <MaxValue>k__BackingField: 3
   <Level>k__BackingField:
     <Level>k__BackingField: 0
     <MaxLevel>k__BackingField: 0

@@ -11,6 +11,7 @@ namespace Entity
         private Transform enemyTransform;
         private Transform treeTransform;
         private Animator animator;
+        private bool spawned { get; } = false;
 
         protected override void InitializeAwake()
         {
@@ -25,6 +26,8 @@ namespace Entity
 
         protected override Vector2 GetDirection()
         {
+            if(!spawned)
+                return Vector2.zero;
             Vector2 direction = treeTransform.position - enemyTransform.position;
 
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){

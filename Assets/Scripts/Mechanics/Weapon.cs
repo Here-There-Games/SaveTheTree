@@ -1,8 +1,8 @@
 using System;
+using Common.Utilities;
 using Entity;
 using Interfaces;
 using UnityEngine;
-using Tree = Entity.Tree;
 
 namespace Mechanics
 {
@@ -34,10 +34,8 @@ namespace Mechanics
         {
             Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
 
-            if(hit != null && attack.TryAttack())
+            if(hit != null && hit.CheckTouchLayer(attack.Layer) && attack.TryAttack())
                 hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
-            else
-                Debug.Log("Hit is not touching");
         }
         
         private void Flip(bool flip)

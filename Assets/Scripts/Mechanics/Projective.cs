@@ -1,8 +1,6 @@
-using System;
-using Entity;
+using Common.Utilities;
 using Interfaces;
 using UnityEngine;
-using Tree = UnityEngine.Tree;
 
 namespace Mechanics
 {
@@ -30,7 +28,7 @@ namespace Mechanics
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if((mask.value & (1 << col.gameObject.layer)) != 0){
+            if(col.CheckTouchLayer(mask)){
                 col.GetComponent<ITakeDamage>().TakeDamage(iDamage);
                 Destroy(gameObject);
             }
@@ -42,14 +40,9 @@ namespace Mechanics
             iDamage = damage;
             mask = maskToAttack;
             initialized = true;
-            Destroy(gameObject, 5);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.localRotation = Quaternion.Euler(new Vector3(0,0, angle));
-        }
-
-        public void LookTarget(Transform target)
-        {
-            transform.LookAt(target);
+            Destroy(gameObject, 5);
         }
     }
 }

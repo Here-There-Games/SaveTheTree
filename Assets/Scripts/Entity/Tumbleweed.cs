@@ -1,3 +1,4 @@
+using Common.Utilities;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
@@ -28,10 +29,9 @@ namespace Entity
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if(col.GetComponent<Tree>() || col.GetComponent<Player>()){
+            if(col.CheckTouchLayer(attack.Layer))
                 if(attack.TryAttack())
                     col.GetComponent<ITakeDamage>()?.TakeDamage(attack);
-            }
         }
     }
 }

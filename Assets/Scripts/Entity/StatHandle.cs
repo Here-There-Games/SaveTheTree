@@ -14,7 +14,7 @@ namespace Entity
         private void Awake()
         {
             iDead = GetComponent<IDead>();
-            Health.OnChangeValue += hp =>
+            Health.ChangeValueEvent += hp =>
                                         {
                                             if(hp <= 0)
                                                 Dead();

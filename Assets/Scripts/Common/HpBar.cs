@@ -18,7 +18,7 @@ namespace Common
         {
             Player player = FindObjectOfType<Player>();
             StatHandle playerStat = player.GetComponent<StatHandle>();
-            playerStat.Health.OnChangeValue += UpdateHpBar;
+            playerStat.Health.ChangeValueEvent += UpdateHpBar;
         }
 
         private void UpdateHpBar(float value)
