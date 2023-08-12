@@ -36,19 +36,6 @@ namespace Mechanics
             }
         }
 
-        /*
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            print(col.collider.name + " " + (col.gameObject.layer == mask));
-            if((mask.value & (1 << col.gameObject.layer)) != 0)
-                print(col.gameObject.name + " is touched");
-            // if(col.collider.GetComponent<Tree>() || col.collider.GetComponent<Player>()){
-                // col.collider.GetComponent<ITakeDamage>().TakeDamage(iDamage);
-                // Destroy(gameObject);
-            // }
-        }
-        */
-
         public void InitBullet(Vector2 dir, IDamage damage, LayerMask maskToAttack)
         {
             direction = dir;
