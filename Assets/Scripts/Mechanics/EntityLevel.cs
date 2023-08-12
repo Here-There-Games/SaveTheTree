@@ -4,11 +4,12 @@ using UnityEngine.Events;
 
 namespace Mechanics
 {
+    
     [System.Serializable]
     public class EntityLevel
     {
-        public event UnityAction<int> OnLevelUp;
-        public event UnityAction<float> OnChangeExperience;
+        public event UnityAction<int> LevelUpEvent;
+        public event UnityAction<float,float> ChangeExperienceEvent;
 
         [field: SerializeField] public int Level { get; private set; }
         [field: SerializeField, Tooltip("If 0, that infinity")] public int MaxLevel { get; private set; }
@@ -23,25 +24,21 @@ namespace Mechanics
             MaxLevel = maxLevel;
         }
 
-        public void AddExperience(IFloat experienceI)
+        public void AddExperience(IFloat iExperience)
         {
-            while(CurrentExperience + experienceI.Value >= MaxExperience){
-                if(MaxLevel != 0 && Level >= MaxLevel)
-                    break;
-                CurrentExperience++;
-                OnChangeExperience?.Invoke(CurrentExperience);
+            if(MaxLevel != 0 && Level >= MaxLevel)
+                return;
+            
+            CurrentExperience += iExperience.Value;
 
-                if(CurrentExperience >= MaxExperience){
-                    CurrentExperience -= MaxExperience;
-                    Level++;
-                    OnLevelUp?.Invoke(Level);
-                }
+            while(CurrentExperience >= MaxExperience){
+                Level++;
+                LevelUpEvent?.Invoke(Level);
             }
+            ChangeExperienceEvent?.Invoke(CurrentExperience, MaxExperience);
         }
 
-        private float GetMaxExperience()
-        {
-            return Level * 15;
-        }
+        private float GetMaxExperience() 
+            => Level * 5;
     }
 }

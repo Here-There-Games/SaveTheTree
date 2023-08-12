@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9307b189e92042f08b76245daff77ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <experience>k__BackingField: 1
+  <item>k__BackingField: {fileID: 5423150777096537257, guid: 9fd626cde2dbb824196e9682a35685e5, type: 3}
+  experience: 1
   attack:
     <Damage>k__BackingField: 1
     <Layer>k__BackingField:

@@ -105,16 +105,16 @@ MonoBehaviour:
     <AddHP>k__BackingField: 0
   - <Sprite>k__BackingField: {fileID: -1552600121, guid: 37b5db0b4f9df45eb854d1022ecf0c16, type: 3}
     <NeedLvl>k__BackingField: 2
-    <AddHP>k__BackingField: 0
+    <AddHP>k__BackingField: 15
   - <Sprite>k__BackingField: {fileID: 684468365, guid: 37b5db0b4f9df45eb854d1022ecf0c16, type: 3}
     <NeedLvl>k__BackingField: 3
-    <AddHP>k__BackingField: 0
+    <AddHP>k__BackingField: 20
   - <Sprite>k__BackingField: {fileID: -466659167, guid: 37b5db0b4f9df45eb854d1022ecf0c16, type: 3}
     <NeedLvl>k__BackingField: 4
-    <AddHP>k__BackingField: 0
+    <AddHP>k__BackingField: 25
   - <Sprite>k__BackingField: {fileID: 610683960, guid: 37b5db0b4f9df45eb854d1022ecf0c16, type: 3}
     <NeedLvl>k__BackingField: 5
-    <AddHP>k__BackingField: 0
+    <AddHP>k__BackingField: 50
 --- !u!114 &1742729742579376786
 MonoBehaviour:
   m_ObjectHideFlags: 0

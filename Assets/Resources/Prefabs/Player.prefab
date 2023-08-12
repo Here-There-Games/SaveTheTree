@@ -138,6 +138,7 @@ MonoBehaviour:
   experience: 5
   cooldownToRespawn: 2
   positionToRespawn: {fileID: 0}
+  waterDrop: {fileID: 5423150777096537257, guid: 9fd626cde2dbb824196e9682a35685e5, type: 3}
 --- !u!50 &2637169688008266820
 Rigidbody2D:
   serializedVersion: 4

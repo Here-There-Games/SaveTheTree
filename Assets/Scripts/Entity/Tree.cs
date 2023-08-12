@@ -10,8 +10,11 @@ namespace Entity
 {
     public class Tree : MonoBehaviour, IDead
     {
-        public event UnityAction DiedEvent;
+        private static readonly int outline = Shader.PropertyToID("_Outline");
         
+        public event UnityAction DiedEvent;
+        public event UnityAction<TreeStage> ChangeStageEvent;
+
         [SerializeField] private List<TreeStage> stages;
 
         private StatHandle statHandle;
@@ -22,20 +25,22 @@ namespace Entity
         {
             statHandle = GetComponent<StatHandle>();
             renderer = GetComponent<SpriteRenderer>();
+            renderer.material.SetFloat(outline, 1);
 
             EntityLevel level = statHandle.Level;
             
-            level.OnLevelUp += OnChangeState;
-            OnChangeState(level.Level);
+            level.LevelUpEvent += ChangeState;
+            ChangeState(level.Level);
         }
 
         private void UpdateStage()
         {
             renderer.sprite = currentStage.Sprite;
             statHandle.Health.UpgradeAttribute(currentStage.AddHP);
+            ChangeStageEvent?.Invoke(currentStage);
         }
 
-        private void OnChangeState(int newLevel)
+        private void ChangeState(int newLevel)
         {
             if(currentStage != null){
                 statHandle.Health.UpgradeAttribute(-currentStage.AddHP);

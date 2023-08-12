@@ -4,11 +4,13 @@ using UnityEngine.Events;
 
 namespace Entity
 {
-    public abstract class EnemyAI : MonoBehaviour, IFloat, IDead
+    public abstract class EnemyAI : MonoBehaviour, IDead
     {
         public event UnityAction DiedEvent;
-        public float Value => experience;
-        [field: SerializeField] protected float experience { get; private set; }
+        
+        [field: SerializeField] protected Item item { get; private set; }
+        
+        [SerializeField] private float experience;
 
         protected Tree tree { get; private set; }
         private IControllable controllable;
@@ -29,8 +31,9 @@ namespace Entity
 
         public void Dead()
         {
-            tree.GetComponent<StatHandle>().Level.AddExperience(this);
             DiedEvent?.Invoke();
+            Item instance = Instantiate(item, transform.position, Quaternion.identity);
+            instance.SetExperience(experience);
             Destroy(gameObject);
         }
 

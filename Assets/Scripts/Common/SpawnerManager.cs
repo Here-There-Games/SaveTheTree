@@ -20,7 +20,7 @@ namespace Common
         private Camera mainCamera;
         private EnemyAI enemyForCurrentSpawn;
         private Transform player;
-        private List<EnemyAI> enemiesSpawned;
+        [SerializeField] private List<EnemyAI> enemiesSpawned;
 
         protected override void Initialize()
         {
@@ -65,15 +65,13 @@ namespace Common
 
         private void CheckEnemyDie()
         {
-            if(enemiesSpawned.Count - 1 == 0)
+            if(enemiesSpawned.Count - 1 < 1)
                 waveTimer.Start();
             enemiesSpawned.RemoveAt(0);
         }
 
-        private EnemyAI GetEnemyForSpawn()
-        {
-            return enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
-        }
+        private EnemyAI GetEnemyForSpawn() 
+            => enemiesCanSpawn[Random.Range(0, enemiesCanSpawn.Length)];
 
         private Wave GenerateWaveDict()
         {
