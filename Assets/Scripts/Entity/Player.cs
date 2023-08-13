@@ -6,15 +6,12 @@ using UnityEngine.Events;
 
 namespace Entity
 {
-    public class Player : MonoBehaviour, IFloat, IDead
+    public class Player : MonoBehaviour, IDead
     {
         public event UnityAction DiedEvent;
-        public float Value => experience;
 
-        [SerializeField] private float experience;
         [SerializeField] private float cooldownToRespawn;
         [SerializeField] private Transform positionToRespawn;
-        [SerializeField] private Item waterDrop;
 
         private Timer timer;
         private StatHandle stat;
@@ -47,7 +44,6 @@ namespace Entity
 
         private void StartRespawn()
         {
-            Instantiate(waterDrop, transform.position, Quaternion.identity).SetExperience(experience);
             InputManager.Instance.InputControl.Player.Disable();
             gameObject.SetActive(false);
         }

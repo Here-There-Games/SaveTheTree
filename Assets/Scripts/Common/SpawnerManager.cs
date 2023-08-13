@@ -1,26 +1,29 @@
+using System;
 using System.Collections.Generic;
 using Entity;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Common
 {
     public class SpawnerManager : BaseSingleton<SpawnerManager>
     {
-        public int WaveCount { get; private set; }
+        public event Action<int> UpdateWaveEvent;
 
         [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
         [SerializeField] private EnemyAI[] enemiesCanSpawn;
         [SerializeField] private float cooldown = 2;
         [SerializeField] private float cooldownWhenEndWave = 3;
 
+        private int waveCount  = 0;
         private Wave currentWave;
         private Timer timer;
         private Timer waveTimer;
         private Camera mainCamera;
         private EnemyAI enemyForCurrentSpawn;
         private Transform player;
-        [SerializeField] private List<EnemyAI> enemiesSpawned;
+        private List<EnemyAI> enemiesSpawned;
 
         protected override void Initialize()
         {
@@ -40,7 +43,8 @@ namespace Common
                                    };
 
             enemiesSpawned = new List<EnemyAI>();
-
+            
+            UpdateWaveEvent?.Invoke(waveCount);
             timer.Start();
         }
 
@@ -76,11 +80,12 @@ namespace Common
         private Wave GenerateWaveDict()
         {
             Dictionary<EnemyAI, int> enemies = new Dictionary<EnemyAI, int>{
-                { enemiesCanSpawn[0], WaveCount == 0 ? Random.Range(1, 3) : WaveCount * 2 - 1 },
-                { enemiesCanSpawn[1], WaveCount == 0 ? 1 : WaveCount - 1 }
+                { enemiesCanSpawn[0], waveCount == 0 ? Random.Range(1, 3) : waveCount * 2 - 1 },
+                { enemiesCanSpawn[1], waveCount == 0 ? 1 : waveCount - 1 }
             };
             Wave newWave = new Wave(enemies);
-            WaveCount++;
+            waveCount++;
+            UpdateWaveEvent?.Invoke(waveCount);
             return newWave;
         }
 

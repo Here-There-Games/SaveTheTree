@@ -7,7 +7,7 @@ namespace Entity
     {
         [SerializeField] private EntityAttackRange attack;
 
-        private new Rigidbody2D rigidbody;
+        private Rigidbody2D rigidbody;
         private Transform enemyTransform;
         private Transform treeTransform;
         private Animator animator;

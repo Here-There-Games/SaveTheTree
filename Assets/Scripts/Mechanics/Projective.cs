@@ -8,7 +8,7 @@ namespace Mechanics
     {
         [SerializeField] private float speed;
 
-        private new Rigidbody2D rigidbody;
+        private Rigidbody2D rigidbody;
         private LayerMask mask;
         private IDamage iDamage;
         private Vector2 direction;

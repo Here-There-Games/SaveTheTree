@@ -8,11 +8,17 @@ namespace Mechanics
 {
     public class Weapon : MonoBehaviour, IWeapon
     {
-        [SerializeField] private EntityAttackRange attack;
+        private static readonly int attack1 = Animator.StringToHash("Attack");
         [field: SerializeField] public bool CanRotate { get; private set; }
+
+        [SerializeField] private EntityAttackRange attack;
+
+        private Animator animator;
 
         private void Awake()
         {
+            animator = GetComponentInParent<Animator>();
+            
             attack.Init(this);
         }
 
@@ -34,8 +40,10 @@ namespace Mechanics
         {
             Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
 
-            if(hit != null && hit.CheckTouchLayer(attack.Layer) && attack.TryAttack())
+            if(hit != null && hit.CheckTouchLayer(attack.Layer) && attack.TryAttack()){
+                animator.SetTrigger(attack1);
                 hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+            }
         }
         
         private void Flip(bool flip)

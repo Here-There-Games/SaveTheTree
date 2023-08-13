@@ -19,7 +19,7 @@ namespace Entity
 
         private StatHandle statHandle;
         private TreeStage currentStage;
-        private new SpriteRenderer renderer;
+        private SpriteRenderer renderer;
 
         private void Awake()
         {

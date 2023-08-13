@@ -39,6 +39,6 @@ namespace Mechanics
         }
 
         private float GetMaxExperience() 
-            => Level * 5;
+            => Level * 10 + 5;
     }
 }
