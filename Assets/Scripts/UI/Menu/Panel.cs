@@ -11,21 +11,22 @@ namespace UI.Menu
         [SerializeField] private bool showInEnd;
         [SerializeField] private bool showInPaused;
         [SerializeField] private bool showInResume;
+        [SerializeField] private GameState state;
         
         private CanvasGroup canvasGroup;
         private GameManager gameManager;
 
-        private void Awake()
+        private void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
             gameManager = GameManager.Instance;
-            Initialize();
             if(showInStart)
-                gameManager.OnGameEndEvent += () => Visible(true);
+                gameManager.OnGameStartEvent += () =>
+                                                    {
+                                                        Visible(true);
+                                                    };
         }
-
-        protected virtual void Initialize() {}
-
+        
         protected void Visible(bool visible)
         {
             canvasGroup.alpha = visible ? 1 : 0;

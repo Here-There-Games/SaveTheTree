@@ -7,7 +7,7 @@ namespace Common
     {
         public event Action OnGamePause;
         public event Action OnGameResume;
-        public event Action OnGameStart;
+        public event Action OnGameStartEvent;
         public event Action OnGameEndEvent;
 
         private GameState state;
@@ -49,7 +49,7 @@ namespace Common
         {
             Debug.Log("gamestart");
             Time.timeScale = 1.0f;
-            OnGameStart?.Invoke();
+            OnGameStartEvent?.Invoke();
             UpdateGameState(GameState.Playing);
         }
 
