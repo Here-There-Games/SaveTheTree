@@ -19,16 +19,17 @@ namespace Entity
 
         private StatHandle statHandle;
         private TreeStage currentStage;
-        private SpriteRenderer renderer;
+        private new SpriteRenderer renderer;
+        private GameManager gameManager;
 
         private void Awake()
         {
             statHandle = GetComponent<StatHandle>();
             renderer = GetComponent<SpriteRenderer>();
-            renderer.material.SetFloat(outline, 1);
-
-            EntityLevel level = statHandle.Level;
+            gameManager = GameManager.Instance;
             
+            renderer.material.SetFloat(outline, 1);
+            EntityLevel level = statHandle.Level;
             level.LevelUpEvent += ChangeState;
             ChangeState(level.Level);
         }
@@ -55,7 +56,7 @@ namespace Entity
 
         public void Dead()
         {
-            MenuManager.Instance.GameOver();
+            gameManager.UpdateGameState(GameState.Paused);
             DiedEvent?.Invoke();
             Destroy(gameObject);
         }

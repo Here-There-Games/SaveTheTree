@@ -8,7 +8,7 @@ namespace Mechanics
     {
         [SerializeField] private float speed;
     
-        private Rigidbody2D rigidbody;
+        private new Rigidbody2D rigidbody;
         private Animator animator;
         private static readonly int vertical = Animator.StringToHash("Vertical");
         private static readonly int horizontal = Animator.StringToHash("Horizontal");
