@@ -6,10 +6,11 @@ namespace Common
 {
     public class Timer
     {
-        public event Action StartEvent;
-        public event Action<float> UpdatedEvent;
-        public event Action<float> TimeChangedEvent;
-        public event Action EndEvent;
+        public event Action OnStartEvent;
+        public event Action<float> OnUpdatedNormalizedEvent;
+        public event Action<float> OnUpdatedEvent;
+        public event Action<float> OnTimeChangedEvent;
+        public event Action OnEndEvent;
 
         public bool Stopped { get; private set; }
         public float Normalized => RemainingTime / Time;
@@ -21,10 +22,10 @@ namespace Common
 
         public Timer(MonoBehaviour mono,Timer timer) : this(mono, timer.Time)
         {
-            TimeChangedEvent = timer.TimeChangedEvent;
-            StartEvent = timer.StartEvent;
-            EndEvent = timer.EndEvent;
-            UpdatedEvent = timer.UpdatedEvent;
+            OnTimeChangedEvent = timer.OnTimeChangedEvent;
+            OnStartEvent = timer.OnStartEvent;
+            OnEndEvent = timer.OnEndEvent;
+            OnUpdatedNormalizedEvent = timer.OnUpdatedNormalizedEvent;
         }
         public Timer(MonoBehaviour context, float time) : this(context)
             => ChangeTime(time);
@@ -39,7 +40,7 @@ namespace Common
         {
             Time = newValue;
             RemainingTime = newValue;
-            TimeChangedEvent?.Invoke(newValue);
+            OnTimeChangedEvent?.Invoke(newValue);
         }
 
         public void Start()
@@ -58,16 +59,17 @@ namespace Common
         private IEnumerator Countdown()
         {
             Stopped = false;
-            StartEvent?.Invoke();
+            OnStartEvent?.Invoke();
 
             while(RemainingTime >= 0){
                 RemainingTime -= UnityEngine.Time.deltaTime;
-                UpdatedEvent?.Invoke(RemainingTime / Time);
+                OnUpdatedNormalizedEvent?.Invoke(RemainingTime / Time);
+                OnUpdatedEvent?.Invoke(RemainingTime);
                 yield return null;
             }
 
             Stopped = true;
-            EndEvent?.Invoke();
+            OnEndEvent?.Invoke();
         }
     }
 }

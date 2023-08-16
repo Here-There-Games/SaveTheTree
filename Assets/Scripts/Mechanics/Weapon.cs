@@ -1,6 +1,4 @@
-using System;
 using Common.Utilities;
-using Entity;
 using Interfaces;
 using UnityEngine;
 
@@ -18,7 +16,7 @@ namespace Mechanics
         private void Awake()
         {
             animator = GetComponentInParent<Animator>();
-            
+
             attack.Init(this);
         }
 
@@ -40,12 +38,14 @@ namespace Mechanics
         {
             Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
 
-            if(hit != null && hit.CheckTouchLayer(attack.Layer) && attack.TryAttack()){
+            if(attack.TryAttack()){
                 animator.SetTrigger(attack1);
-                hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                if(hit != null && hit.CheckTouchLayer(attack.Layer)){
+                    hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
+                }
             }
         }
-        
+
         private void Flip(bool flip)
         {
             Vector3 scale = transform.localScale;
@@ -56,9 +56,8 @@ namespace Mechanics
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attack.Point.position,attack.Range);
+            Gizmos.DrawWireSphere(attack.Point.position, attack.Range);
         }
 #endif
-        
     }
 }

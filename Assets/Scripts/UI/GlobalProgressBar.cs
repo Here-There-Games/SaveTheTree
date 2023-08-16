@@ -21,8 +21,8 @@ namespace UI
             timerProgress = new Timer(this,timer);
             if(title != null && titleBar != null)
                 title.text = titleBar;
-            timerProgress.UpdatedEvent += UpdateProgress;
-            timerProgress.EndEvent += () => Visible(false);
+            timerProgress.OnUpdatedNormalizedEvent += UpdateProgress;
+            timerProgress.OnEndEvent += () => Visible(false);
             timerProgress.Start();
         }
 

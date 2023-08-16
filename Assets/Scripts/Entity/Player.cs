@@ -22,8 +22,8 @@ namespace Entity
             stat = GetComponent<StatHandle>();
             statTree = FindObjectOfType<Tree>().GetComponent<StatHandle>();
             timer = new Timer(this, cooldownToRespawn);
-            timer.StartEvent += StartRespawn;
-            timer.EndEvent += EndRespawn;
+            timer.OnStartEvent += OnStartRespawn;
+            timer.OnEndEvent += OnEndRespawn;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -42,13 +42,13 @@ namespace Entity
             DiedEvent?.Invoke();
         }
 
-        private void StartRespawn()
+        private void OnStartRespawn()
         {
             InputManager.Instance.InputControl.Player.Disable();
             gameObject.SetActive(false);
         }
 
-        private void EndRespawn()
+        private void OnEndRespawn()
         {
             transform.position = positionToRespawn.position;
             InputManager.Instance.InputControl.Player.Enable();

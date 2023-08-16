@@ -22,8 +22,8 @@ namespace Mechanics
         public void Init(MonoBehaviour mono)
         {
             timer = new Timer(mono, cooldown);
-            timer.StartEvent += () => AttackEvent?.Invoke();
-            timer.EndEvent += () => OnReadyAttack?.Invoke();
+            timer.OnStartEvent += () => AttackEvent?.Invoke();
+            timer.OnEndEvent += () => OnReadyAttack?.Invoke();
         }
 
         public bool TryAttack()

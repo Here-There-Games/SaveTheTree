@@ -1,6 +1,5 @@
 namespace Common
 {
-    [System.Flags]
     public enum GameState
     {
         Paused,
