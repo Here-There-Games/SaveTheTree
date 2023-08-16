@@ -48,7 +48,7 @@ namespace Mechanics
         private void FireOnPerformed(InputAction.CallbackContext context)
         {
             if(context.performed && weapon != null)
-                weapon.Attack();
+                weapon.Attack(CalculateRotateForWeapon());
             else
                 Debug.LogWarning($"Weapon in {GetType().Name}");
         }

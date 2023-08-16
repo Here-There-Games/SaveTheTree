@@ -26,15 +26,18 @@ namespace Mechanics
             timer.OnEndEvent += () => OnReadyAttack?.Invoke();
         }
 
-        public bool TryAttack()
+        public bool TryAttack(Vector3 targetDirection = default)
         {
             if(timer.Stopped){
                 AttackEvent?.Invoke();
                 timer.Start();
+                Attack(targetDirection);
                 return true;
             }
 
             return false;
         }
+
+        protected virtual void Attack(Vector3 targetDirection) { }
     }
 }

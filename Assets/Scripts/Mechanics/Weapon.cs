@@ -1,4 +1,3 @@
-using Common.Utilities;
 using Interfaces;
 using UnityEngine;
 
@@ -6,17 +5,13 @@ namespace Mechanics
 {
     public class Weapon : MonoBehaviour, IWeapon
     {
-        private static readonly int attack1 = Animator.StringToHash("Attack");
         [field: SerializeField] public bool CanRotate { get; private set; }
 
         [SerializeField] private EntityAttackRange attack;
 
-        private Animator animator;
 
         private void Awake()
         {
-            animator = GetComponentInParent<Animator>();
-
             attack.Init(this);
         }
 
@@ -34,15 +29,10 @@ namespace Mechanics
             }
         }
 
-        public void Attack()
+        public void Attack(Vector2 targetDirection)
         {
-            Collider2D hit = Physics2D.OverlapCircle(attack.Point.position, attack.Range, attack.Layer);
-
-            if(attack.TryAttack()){
-                animator.SetTrigger(attack1);
-                if(hit != null && hit.CheckTouchLayer(attack.Layer)){
-                    hit.GetComponent<ITakeDamage>()?.TakeDamage(attack);
-                }
+            if(attack.TryAttack(targetDirection)){
+                Debug.Log("Attack");
             }
         }
 

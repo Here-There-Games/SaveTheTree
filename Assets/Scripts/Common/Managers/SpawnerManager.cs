@@ -1,4 +1,3 @@
-// using System;
 using System.Collections.Generic;
 using Entity;
 using UnityEngine;
@@ -8,7 +7,7 @@ namespace Common
 {
     public class SpawnerManager : BaseSingleton<SpawnerManager>
     {
-        public event System.Action<int> UpdateWaveEvent;
+        public event System.Action<int> OnUpdateWaveEvent;
 
         public Timer timer { get; private set; }
         public Timer WaveTimer { get; private set; }
@@ -45,7 +44,7 @@ namespace Common
                                         };
 
             enemiesSpawned = new List<EnemyAI>();
-            UpdateWaveEvent?.Invoke(waveCount);
+            OnUpdateWaveEvent?.Invoke(waveCount);
 
             timer.Start();
             view.Start();
@@ -88,7 +87,7 @@ namespace Common
             };
             Wave newWave = new Wave(enemies);
             waveCount++;
-            UpdateWaveEvent?.Invoke(waveCount);
+            OnUpdateWaveEvent?.Invoke(waveCount);
             return newWave;
         }
 

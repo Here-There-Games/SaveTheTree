@@ -28,10 +28,8 @@ namespace Entity
             Vector2 direction = treeTransform.position - enemyTransform.position;
 
             if(Vector3.Distance(rigidbody.position, treeTransform.position) <= attack.Range){
-                if(attack.TryAttack()){
-                    Vector3 targetDirection = treeTransform.position - attack.Point.position;
-                    Projective projective = Instantiate(attack.Projective, attack.Point.position, Quaternion.identity);
-                    projective.InitBullet(targetDirection,attack,attack.Layer);
+                if(attack.TryAttack(treeTransform.position - attack.Point.position)){
+                    // TODO додати якісь ефекти
                 }
 
                 return Vector2.zero;

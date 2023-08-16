@@ -8,15 +8,17 @@ namespace Mechanics
     {
         [SerializeField] private float speed;
 
-        private new Rigidbody2D rigidbody;
-        private LayerMask mask;
-        private IDamage iDamage;
-        private Vector2 direction;
         private bool initialized;
+        private new Rigidbody2D rigidbody;
+        private EntityAttackRange entityAttack;
+        private Transform thisTransform;
+        private Vector2 direction;
+        private Vector3 startPoint;
 
         private void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+            thisTransform = transform;
         }
 
         private void FixedUpdate()
@@ -24,25 +26,26 @@ namespace Mechanics
             if(!initialized)
                 return;
             rigidbody.velocity = direction * speed;
+            if(Vector3.Distance(startPoint, thisTransform.position) > entityAttack.Range)
+                Destroy(gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if(col.CheckTouchLayer(mask)){
-                col.GetComponent<ITakeDamage>().TakeDamage(iDamage);
+            if(col.CheckTouchLayer(entityAttack.Layer)){
+                col.GetComponent<ITakeDamage>().TakeDamage(entityAttack);
                 Destroy(gameObject);
             }
         }
 
-        public void InitBullet(Vector2 dir, IDamage damage, LayerMask maskToAttack)
+        public void InitBullet(Vector2 dir, EntityAttackRange attack)
         {
             direction = dir;
-            iDamage = damage;
-            mask = maskToAttack;
+            entityAttack = attack;
             initialized = true;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.localRotation = Quaternion.Euler(new Vector3(0,0, angle));
-            Destroy(gameObject, 5);
+            startPoint = thisTransform.position;
         }
     }
 }

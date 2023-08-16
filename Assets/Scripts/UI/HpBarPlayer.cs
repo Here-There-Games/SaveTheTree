@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Entity;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,18 +13,20 @@ namespace UI
         [SerializeField] private Sprite halfHp;
         [SerializeField] private Sprite emptyHp;
         [SerializeField] private List<Image> images;
+        [SerializeField] private new Animation animation;
 
         private void Awake()
         {
             Player player = FindObjectOfType<Player>();
             StatHandle playerStat = player.GetComponent<StatHandle>();
             playerStat.Health.ChangeValueEvent += UpdateHp;
+            animation = GetComponent<Animation>();
         }
 
         protected override void UpdateHp(float value)
         {
             int newValue = (int)value;
-
+            
             images[0].sprite = newValue switch{
                 0 => emptyHp,
                 1 => halfHp,
