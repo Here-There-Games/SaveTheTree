@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Common
 {
-    [System.Serializable]
     public class Wave
     {
-        private Dictionary<EnemyAI, int> enemies;
+        private readonly Dictionary<EnemyAI, int> enemies;
 
         public Wave(Dictionary<EnemyAI, int> enemies)
             => this.enemies = enemies;
