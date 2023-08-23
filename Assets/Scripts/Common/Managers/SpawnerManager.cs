@@ -9,17 +9,16 @@ namespace Common
     {
         public event System.Action<int> OnUpdateWaveEvent;
 
+        public int WaveCount { get; private set; }
         public Timer timer { get; private set; }
         public Timer WaveTimer { get; private set; }
 
-        [Header("Setting")]
-        [SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
+        [Header("Setting")][SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
         [SerializeField] private EnemyAI[] enemiesCanSpawn;
         [SerializeField] private float cooldown = 5;
         [SerializeField] private float cooldownWhenEndWave = 10;
         [SerializeField] private SpawnerView view;
 
-        private int waveCount;
         private Wave currentWave;
         private Camera mainCamera;
         private EnemyAI enemyForCurrentSpawn;
@@ -41,12 +40,14 @@ namespace Common
                                         {
                                             currentWave = GenerateWaveDict();
                                             timer.Start();
+                                            WaveCount++;
+                                            OnUpdateWaveEvent?.Invoke(WaveCount);
                                         };
 
             enemiesSpawned = new List<EnemyAI>();
-            OnUpdateWaveEvent?.Invoke(waveCount);
+            OnUpdateWaveEvent?.Invoke(WaveCount);
 
-            timer.Start();
+            WaveTimer.Start();
             view.Start();
         }
 
@@ -72,8 +73,10 @@ namespace Common
         private void CheckEnemyDie()
         {
             enemiesSpawned.RemoveAt(0);
-            if(enemiesSpawned.Count < 1)
+
+            if(enemiesSpawned.Count < 1){
                 WaveTimer.Start();
+            }
         }
 
         private EnemyAI GetEnemyForSpawn()
@@ -82,12 +85,10 @@ namespace Common
         private Wave GenerateWaveDict()
         {
             Dictionary<EnemyAI, int> enemies = new Dictionary<EnemyAI, int>{
-                { enemiesCanSpawn[0], waveCount == 0 ? Random.Range(1, 3) : waveCount * 2 - 1 },
-                { enemiesCanSpawn[1], waveCount == 0 ? 1 : waveCount - 1 }
+                { enemiesCanSpawn[0], WaveCount == 0 ? Random.Range(1, 3) : WaveCount * 2 - 1 },
+                { enemiesCanSpawn[1], WaveCount == 0 ? 1 : WaveCount - 1 }
             };
             Wave newWave = new Wave(enemies);
-            waveCount++;
-            OnUpdateWaveEvent?.Invoke(waveCount);
             return newWave;
         }
 

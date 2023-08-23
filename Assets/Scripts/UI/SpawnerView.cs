@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Common
 {
@@ -8,9 +9,12 @@ namespace Common
     {
         [SerializeField] private TMP_Text waveReload;
         [SerializeField] private TMP_Text waveCount;
+        [SerializeField] private string title = "Wave";
+        [SerializeField] private string separator = " ";
+        [FormerlySerializedAs("animationShow"),SerializeField] private AnimationCurve animationCurve;
 
         private SpawnerManager spawnerManager;
-        private float currentWave;
+        private int currentWave => spawnerManager.WaveCount;
 
         public void Start()
         {
@@ -19,7 +23,7 @@ namespace Common
             spawnerManager.OnUpdateWaveEvent += UpdateWaveCount;
             spawnerManager.WaveTimer.OnStartEvent += StartWave;
             spawnerManager.WaveTimer.OnUpdatedNormalizedEvent += UpdateReloadWave;
-        
+
             Color waveColor = waveReload.color;
             waveReload.color = new Color(waveColor.r, waveColor.g, waveColor.b, 0);
         }
@@ -27,22 +31,17 @@ namespace Common
         private void StartWave()
         {
             if(waveReload != null)
-                waveReload.text = $"Wave | {currentWave + 1}"; 
+                waveReload.text = $"{title}{separator}{currentWave + 1}";
         }
 
         private void UpdateReloadWave(float time)
         {
             Color waveColor = waveReload.color;
-            waveReload.color = new Color(waveColor.r, waveColor.g, waveColor.b, time);
+            waveColor.a = animationCurve.Evaluate(time);
+            waveReload.color = waveColor;
         }
 
         private void UpdateWaveCount(int wave)
-        {
-            currentWave = wave;
-            UpdateWaveView();
-        }
-
-        private void UpdateWaveView()
         {
             waveCount.text = $"Wave: {currentWave}";
         }
