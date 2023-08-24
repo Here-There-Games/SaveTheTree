@@ -53,7 +53,7 @@ namespace Entity
             transform.position = positionToRespawn.position;
             InputManager.Instance.InputControl.Player.Enable();
             gameObject.SetActive(true);
-            stat.Health.Add(stat.Health.MaxValue);
+            stat.StatData.FindAttribute("Health").RestoreAttribute();
         }
     }
 }

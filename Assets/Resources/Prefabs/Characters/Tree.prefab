@@ -127,9 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a3525674d94ec18ae02a21f929e714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Health>k__BackingField:
-    <Value>k__BackingField: 100
-    <MaxValue>k__BackingField: 100
+  <StatData>k__BackingField: {fileID: 11400000, guid: 28ea7ce43b5bee644bfe0e069dbd9329, type: 2}
+  maxHealth: 0
   <Level>k__BackingField:
     <Level>k__BackingField: 0
     <MaxLevel>k__BackingField: 5
@@ -150,8 +149,8 @@ BoxCollider2D:
   m_Offset: {x: 0.06, y: 0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.5625, y: 0.875}
+    pivot: {x: 0.72015524, y: -0.0025749207}
+    oldSize: {x: 1, y: 2.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

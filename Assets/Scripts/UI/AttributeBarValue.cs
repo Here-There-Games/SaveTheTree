@@ -8,14 +8,16 @@ namespace UI
 {
     public class AttributeBarValue : MonoBehaviour
     {
+        private const string HEALTH_ATTRIBUTE = "Health";
+
         [SerializeField] private Image image;
         [SerializeField] private TMP_Text text;
 
         private void Awake()
         {
             StatHandle stat = FindObjectOfType<Tree>().GetComponent<StatHandle>();
-            stat.Health.ChangeValueNormalizedEvent += UpdateHp;
-            UpdateHp(stat.Health.Value / stat.Health.MaxValue);
+            stat.GetAttribute(HEALTH_ATTRIBUTE).ChangeValueNormalizedEvent += UpdateHp;
+            UpdateHp(stat.GetAttribute(HEALTH_ATTRIBUTE).Value / stat.GetAttribute(HEALTH_ATTRIBUTE).MaxValue);
         }
 
         private void UpdateHp(float value)

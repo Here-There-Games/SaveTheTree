@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Entity;
+using Mechanics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +9,8 @@ namespace UI
 {
     public class AttributeBarCount : MonoBehaviour
     {
+        private const string HEALTH_ATTRIBUTE = "Health";
+        
         [SerializeField] private Sprite fullSprite;
         [SerializeField] private Sprite halfSprite;
         [SerializeField] private Sprite emptySprite;
@@ -16,22 +20,26 @@ namespace UI
 
         private readonly List<Image> images = new List<Image>();
 
-        private void Awake()
+        private void Start()
         {
             GameObject objectWithTag = GameObject.FindGameObjectWithTag(tagToFind);
             StatHandle stat = objectWithTag.GetComponent<StatHandle>();
-            stat.Health.ChangeValueEvent += UpdateHp;
+            if(stat.StatData.TryGetAttribute(HEALTH_ATTRIBUTE, out EntityAttribute health) && health != null){
+                health.OnChangeEvent += UpdateHp;
+                int maxHp = Mathf.FloorToInt(health.MaxValue / countInSprite);
 
-            int maxHp = Mathf.FloorToInt(stat.Health.MaxValue / countInSprite);
-
-            for(int i = 0; i < maxHp; i++){
-                Image image = new GameObject($"Hp_{i}").AddComponent<Image>();
-                image.transform.SetParent(transform);
-                image.transform.localScale = Vector3.one;
-                image.rectTransform.anchoredPosition3D = Vector3.zero;
-                image.rectTransform.sizeDelta = spriteSize;
-                image.sprite = fullSprite;
-                images.Add(image);
+                for(int i = 0; i < maxHp; i++){
+                    Image image = new GameObject($"Hp_{i}").AddComponent<Image>();
+                    image.transform.SetParent(transform);
+                    image.transform.localScale = Vector3.one;
+                    image.rectTransform.anchoredPosition3D = Vector3.zero;
+                    image.rectTransform.sizeDelta = spriteSize;
+                    image.sprite = fullSprite;
+                    images.Add(image);
+                }
+            }
+            else{
+                throw new NullReferenceException($"{name} is not find Health");
             }
         }
 

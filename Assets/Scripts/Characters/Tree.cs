@@ -11,7 +11,8 @@ namespace Entity
     public class Tree : MonoBehaviour, IDead
     {
         private static readonly int outline = Shader.PropertyToID("_Outline");
-        
+        private const string HEALTH_ATTRIBUTE = "Health";
+
         public event UnityAction DiedEvent;
         public event UnityAction<TreeStage> ChangeStageEvent;
 
@@ -37,14 +38,14 @@ namespace Entity
         private void UpdateStage()
         {
             renderer.sprite = currentStage.Sprite;
-            statHandle.Health.UpgradeAttribute(currentStage.AddHP);
+            statHandle.GetAttribute(HEALTH_ATTRIBUTE).AddToMaxValue(currentStage.AddHP);
             ChangeStageEvent?.Invoke(currentStage);
         }
 
         private void ChangeState(int newLevel)
         {
             if(currentStage != null){
-                statHandle.Health.UpgradeAttribute(-currentStage.AddHP);
+                statHandle.GetAttribute(HEALTH_ATTRIBUTE).AddToMaxValue(-currentStage.AddHP);
             }
 
             foreach(TreeStage treeStage in stages.Where(treeStage => treeStage.NeedLvl == newLevel)){

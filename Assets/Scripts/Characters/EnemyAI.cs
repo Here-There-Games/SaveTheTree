@@ -14,7 +14,7 @@ namespace Entity
 
         protected Tree tree { get; private set; }
         private IControllable controllable;
-
+        
         private void Awake()
         {
             controllable = GetComponent<IControllable>();

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055074a6fa34214bd4b416267cc7337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  defaultSpeed: 1
 --- !u!114 &4990052345879584731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a3525674d94ec18ae02a21f929e714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <StatData>k__BackingField: {fileID: 11400000, guid: cfa1d66bf9d33614b881ee48cefbd365, type: 2}
   <Health>k__BackingField:
+    <Name>k__BackingField: Health
     <Value>k__BackingField: 3
     <MaxValue>k__BackingField: 3
   <Level>k__BackingField:
