@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b8ecdfece448119a37110ba5717c52, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  stats:
-  - <Name>k__BackingField: Speed
-    <Value>k__BackingField: 1
+  stats: []
   attributes:
   - <Name>k__BackingField: Health
-    <Value>k__BackingField: 3
-    <MaxValue>k__BackingField: 3
+    <Value>k__BackingField: 100
+    <MaxValue>k__BackingField: 100

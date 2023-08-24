@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - <Name>k__BackingField: Speed
-    <Value>k__BackingField: 1
+    <Value>k__BackingField: 3
   attributes:
   - <Name>k__BackingField: Health
     <Value>k__BackingField: 6
