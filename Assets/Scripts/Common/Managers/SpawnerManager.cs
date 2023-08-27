@@ -57,7 +57,7 @@ namespace Common
 
             if(currentWave.CanSpawn(enemyForCurrentSpawn)){
                 EnemyAI spawned = currentWave.Spawn(enemyForCurrentSpawn, GetPositionForSpawn(), Quaternion.identity);
-                spawned.DiedEvent += CheckEnemyDie;
+                spawned.OnDiedEvent += CheckEnemyDie;
                 enemiesSpawned.Add(spawned);
             }
         }

@@ -8,10 +8,16 @@ namespace Mechanics
         [field: SerializeField] public bool CanRotate { get; private set; }
 
         [SerializeField] private EntityAttackRange attack;
+        [SerializeField] private float attackAmplitude;
+        [SerializeField] private float attackFrequency;
 
+        private CameraShake cameraShake;
 
         private void Awake()
         {
+            cameraShake = FindObjectOfType<CameraShake>();
+            cameraShake.Init(attackAmplitude, attackFrequency);
+            
             attack.Init(this);
         }
 
@@ -32,7 +38,7 @@ namespace Mechanics
         public void Attack(Vector2 targetDirection)
         {
             if(attack.TryAttack(targetDirection)){
-                Debug.Log("Attack");
+                cameraShake.StartShake();
             }
         }
 

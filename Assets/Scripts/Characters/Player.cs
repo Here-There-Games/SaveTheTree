@@ -8,7 +8,7 @@ namespace Entity
 {
     public class Player : MonoBehaviour, IDead
     {
-        public event UnityAction DiedEvent;
+        public event UnityAction OnDiedEvent;
 
         [SerializeField] private float cooldownToRespawn;
         [SerializeField] private Transform positionToRespawn;
@@ -39,7 +39,7 @@ namespace Entity
         public void Dead()
         {
             GlobalProgressBar.Instance.ShowProgressBar("Respawning", timer);
-            DiedEvent?.Invoke();
+            OnDiedEvent?.Invoke();
         }
 
         private void OnStartRespawn()
