@@ -6,18 +6,27 @@ namespace Common
 {
     public class Timer
     {
-        public event Action OnStart;
-        public event Action<float> OnUpdated;
-        public event Action OnTimeChanged;
-        public event Action OnEnd;
+        public event Action OnStartEvent;
+        public event Action<float> OnUpdatedNormalizedEvent;
+        public event Action<float> OnUpdatedEvent;
+        public event Action<float> OnTimeChangedEvent;
+        public event Action OnEndEvent;
 
         public bool Stopped { get; private set; }
+        public float Normalized => RemainingTime / Time;
 
-        private float time;
-        private float remainingTime;
+        public float Time{ get; private set; }
+        public float RemainingTime{ get; private set; }
         private IEnumerator countdown;
         private readonly MonoBehaviour context;
 
+        public Timer(MonoBehaviour mono,Timer timer) : this(mono, timer.Time)
+        {
+            OnTimeChangedEvent = timer.OnTimeChangedEvent;
+            OnStartEvent = timer.OnStartEvent;
+            OnEndEvent = timer.OnEndEvent;
+            OnUpdatedNormalizedEvent = timer.OnUpdatedNormalizedEvent;
+        }
         public Timer(MonoBehaviour context, float time) : this(context)
             => ChangeTime(time);
 
@@ -29,14 +38,14 @@ namespace Common
 
         public void ChangeTime(float newValue)
         {
-            time = newValue;
-            remainingTime = newValue;
-            OnTimeChanged?.Invoke();
+            Time = newValue;
+            RemainingTime = newValue;
+            OnTimeChangedEvent?.Invoke(newValue);
         }
 
         public void Start()
         {
-            remainingTime = time;
+            RemainingTime = Time;
             countdown = Countdown();
             context.StartCoroutine(countdown);
         }
@@ -50,16 +59,17 @@ namespace Common
         private IEnumerator Countdown()
         {
             Stopped = false;
-            OnStart?.Invoke();
+            OnStartEvent?.Invoke();
 
-            while(remainingTime >= 0){
-                remainingTime -= Time.deltaTime;
-                OnUpdated?.Invoke(remainingTime / time);
+            while(RemainingTime >= 0){
+                RemainingTime -= UnityEngine.Time.deltaTime;
+                OnUpdatedNormalizedEvent?.Invoke(RemainingTime / Time);
+                OnUpdatedEvent?.Invoke(RemainingTime);
                 yield return null;
             }
 
             Stopped = true;
-            OnEnd?.Invoke();
+            OnEndEvent?.Invoke();
         }
     }
 }
