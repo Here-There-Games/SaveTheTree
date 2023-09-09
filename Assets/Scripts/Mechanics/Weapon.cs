@@ -1,3 +1,4 @@
+using System;
 using Interfaces;
 using UnityEngine;
 
@@ -16,9 +17,13 @@ namespace Mechanics
         private void Awake()
         {
             cameraShake = FindObjectOfType<CameraShake>();
-            cameraShake.Init(attackAmplitude, attackFrequency);
             
             attack.Init(this);
+        }
+
+        private void Start()
+        {
+            cameraShake.Init(attackAmplitude, attackFrequency);
         }
 
         public void RotateWeapon(Vector2 direction)

@@ -3,7 +3,7 @@ using Entity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Common
+namespace Common.Managers
 {
     public class SpawnerManager : BaseSingleton<SpawnerManager>
     {

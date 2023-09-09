@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Common
+namespace Common.Managers
 {
     public class SoundManager : BaseSingleton<SoundManager>
     {
