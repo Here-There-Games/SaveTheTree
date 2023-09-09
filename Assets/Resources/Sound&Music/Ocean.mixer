@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ocean
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: 20
+  m_EnableSuspend: 1
+  m_UpdateMode: 1
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews: []
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c988ab8b491ee5f45986e9ae789e53df
+  m_Children: []
+  m_Volume: 3b6d4be824bc54f4aaa222744711c04c
+  m_Pitch: f4b8d6e6a6cb0b141a3154a5e1bd5fc0
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5242fab33dd837445a284043463055bd
+  m_EffectName: Attenuation
+  m_MixLevel: efe9cfc316778bc4db627e062c37c3b7
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 1c3326338a204d64f9a3fe0f317f0bc1
+  m_FloatValues:
+    ccbcd0c197d48204ca3ee2f8a2483fe7: 100000
+    142f68d112cc4c043be2e1033f3b37fb: 1.91
+    c6b60b3291e34ca4bba4256579d0ffef: 10
+    869ebfb27b5328449bfa3dc24d27367f: 1
+    f4b8d6e6a6cb0b141a3154a5e1bd5fc0: 1
+    a3379978a46675940922f9b8b8910f71: 1
+    3b6d4be824bc54f4aaa222744711c04c: 20
+    60723ab92f9bbd64aad2d03d0eb07a46: 4747
+    936bb2ccfd56aea4eaeb61d05595449d: 3
+    8c74e4ae441f72b48b0c745ba4b49ba3: 20000
+  m_TransitionOverrides: {}
