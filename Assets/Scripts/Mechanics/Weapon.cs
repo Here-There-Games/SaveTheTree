@@ -17,7 +17,7 @@ namespace Mechanics
         private void Awake()
         {
             cameraShake = FindObjectOfType<CameraShake>();
-            
+
             attack.Init(this);
         }
 
@@ -56,6 +56,8 @@ namespace Mechanics
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
+            if(attack == null || attack.Point == null)
+                return;
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attack.Point.position, attack.Range);
         }
