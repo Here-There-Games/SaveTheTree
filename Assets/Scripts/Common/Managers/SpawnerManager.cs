@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Entity;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Common
+namespace Common.Managers
 {
     public class SpawnerManager : BaseSingleton<SpawnerManager>
     {
@@ -11,7 +12,6 @@ namespace Common
 
         public int WaveCount { get; private set; }
         public Timer timer { get; private set; }
-        public Timer WaveTimer { get; private set; }
 
         [Header("Setting")][SerializeField] private Vector2 cameraOffset = new(15, 10); // 9,5 camera
         [SerializeField] private EnemyAI[] enemiesCanSpawn;
@@ -35,19 +35,10 @@ namespace Common
             timer.OnStartEvent += OnStartEventCooldown;
             timer.OnEndEvent += OnEndEventCooldown;
 
-            WaveTimer = new Timer(this, cooldownWhenEndWave);
-            WaveTimer.OnEndEvent += () =>
-                                        {
-                                            currentWave = GenerateWaveDict();
-                                            timer.Start();
-                                            WaveCount++;
-                                            OnUpdateWaveEvent?.Invoke(WaveCount);
-                                        };
-
             enemiesSpawned = new List<EnemyAI>();
             OnUpdateWaveEvent?.Invoke(WaveCount);
 
-            WaveTimer.Start();
+            StartCoroutine(WaitNextWaveCoroutine());
             view.Start();
         }
 
@@ -57,7 +48,7 @@ namespace Common
 
             if(currentWave.CanSpawn(enemyForCurrentSpawn)){
                 EnemyAI spawned = currentWave.Spawn(enemyForCurrentSpawn, GetPositionForSpawn(), Quaternion.identity);
-                spawned.DiedEvent += CheckEnemyDie;
+                spawned.OnDiedEvent += CheckEnemyDie;
                 enemiesSpawned.Add(spawned);
             }
         }
@@ -75,7 +66,7 @@ namespace Common
             enemiesSpawned.RemoveAt(0);
 
             if(enemiesSpawned.Count < 1){
-                WaveTimer.Start();
+                StartCoroutine(WaitNextWaveCoroutine());
             }
         }
 
@@ -112,6 +103,15 @@ namespace Common
         {
             Vector3 viewportPoint = mainCamera.WorldToViewportPoint(position);
             return viewportPoint is{ z: > 0, x: > 0 and < 1, y: > 0 and < 1 };
+        }
+
+        private IEnumerator WaitNextWaveCoroutine()
+        {
+            yield return new WaitForSeconds(cooldownWhenEndWave);
+            currentWave = GenerateWaveDict();
+            timer.Start();
+            WaveCount++;
+            OnUpdateWaveEvent?.Invoke(WaveCount);
         }
     }
 }

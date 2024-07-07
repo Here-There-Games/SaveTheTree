@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
+using Common.Managers;
 using Interfaces;
 using Mechanics;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Entity
         private static readonly int outline = Shader.PropertyToID("_Outline");
         private const string HEALTH_ATTRIBUTE = "Health";
 
-        public event UnityAction DiedEvent;
+        public event UnityAction OnDiedEvent;
         public event UnityAction<TreeStage> ChangeStageEvent;
 
         [SerializeField] private List<TreeStage> stages;
@@ -58,7 +59,7 @@ namespace Entity
         public void Dead()
         {
             gameManager.UpdateGameState(GameState.Paused);
-            DiedEvent?.Invoke();
+            OnDiedEvent?.Invoke();
             Destroy(gameObject);
         }
     }

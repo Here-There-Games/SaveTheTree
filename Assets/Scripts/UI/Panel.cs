@@ -1,4 +1,5 @@
 using Common;
+using Common.Managers;
 using UnityEngine;
 
 namespace UI.Menu
@@ -17,8 +18,11 @@ namespace UI.Menu
             gameManager = GameManager.Instance;
         }
 
+        [ContextMenu("Close")]
         public void Close()
             => Close(GameState.Playing);
+        
+        [ContextMenu("Show")]
         public void Show()
             => Show(GameState.Playing);
         

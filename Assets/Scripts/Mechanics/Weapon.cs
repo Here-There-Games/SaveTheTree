@@ -1,3 +1,4 @@
+using System;
 using Interfaces;
 using UnityEngine;
 
@@ -8,10 +9,21 @@ namespace Mechanics
         [field: SerializeField] public bool CanRotate { get; private set; }
 
         [SerializeField] private EntityAttackRange attack;
+        [SerializeField] private float attackAmplitude;
+        [SerializeField] private float attackFrequency;
+
+        private CameraShake cameraShake;
 
         private void Awake()
         {
+            cameraShake = FindObjectOfType<CameraShake>();
+
             attack.Init(this);
+        }
+
+        private void Start()
+        {
+            cameraShake.Init(attackAmplitude, attackFrequency);
         }
 
         public void RotateWeapon(Vector2 direction)
@@ -31,7 +43,7 @@ namespace Mechanics
         public void Attack(Vector2 targetDirection)
         {
             if(attack.TryAttack(targetDirection)){
-                Debug.Log("Attack");
+                cameraShake.StartShake();
             }
         }
 

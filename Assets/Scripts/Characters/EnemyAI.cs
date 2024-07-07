@@ -6,7 +6,7 @@ namespace Entity
 {
     public abstract class EnemyAI : MonoBehaviour, IDead
     {
-        public event UnityAction DiedEvent;
+        public event UnityAction OnDiedEvent;
         
         [field: SerializeField] protected Item item { get; private set; }
         
@@ -31,7 +31,7 @@ namespace Entity
 
         public void Dead()
         {
-            DiedEvent?.Invoke();
+            OnDiedEvent?.Invoke();
             Item instance = Instantiate(item, transform.position, Quaternion.identity);
             instance.SetExperience(experience);
             Destroy(gameObject);

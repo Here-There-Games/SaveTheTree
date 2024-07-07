@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-namespace Common
+namespace Common.Managers
 {
     public class GameManager : BaseSingleton<GameManager>
     {
@@ -12,10 +13,21 @@ namespace Common
         public UnityAction OnGameEndEvent;
 
         private GameState currentState;
+        private InputManager inputManager;
+        private InputAction gamePause;
 
         private void Start()
         {
             UpdateGameState(GameState.Started);
+            gamePause = InputManager.Instance.InputControl.Player.Escape;
+
+            gamePause.started += _ =>
+                                     {
+                                         UpdateGameState(currentState == GameState.Paused
+                                                             ? GameState.Resumed
+                                                             : GameState.Paused);
+                                     };
+            inputManager = InputManager.Instance;
         }
 
         public void UpdateGameState(GameState newState)
@@ -57,24 +69,23 @@ namespace Common
         {
             Time.timeScale = 1;
             OnGameResumeEvent?.Invoke();
+            inputManager.InputControl.Player.Enable();
+            inputManager.InputControl.UI.Enable();
         }
 
         private void PauseGame()
         {
             Time.timeScale = 0;
             OnGamePauseEvent?.Invoke();
+            inputManager.InputControl.Player.Disable();
+            inputManager.InputControl.UI.Disable();
         }
 
-        public void OpenScene(int index)
+        public void OpenScene(int index, LoadSceneMode mode = LoadSceneMode.Single)
         {
-            SceneManager.LoadScene(index, LoadSceneMode.Single);
+            SceneManager.LoadScene(index, mode);
         }
         
-        public void OpenSceneAdditive(int index)
-        {
-            SceneManager.LoadScene(index, LoadSceneMode.Additive);
-        }
-
         public void ExitGame()
         {
             Application.Quit();

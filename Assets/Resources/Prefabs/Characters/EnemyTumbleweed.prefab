@@ -157,10 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StatData>k__BackingField: {fileID: 11400000, guid: 07c7a595b38c4e042b155e16c569ec9b, type: 2}
-  <Health>k__BackingField:
-    <Name>k__BackingField: 
-    <Value>k__BackingField: 1
-    <MaxValue>k__BackingField: 1
+  maxHealth: 0
   <Level>k__BackingField:
     <Level>k__BackingField: 0
     <MaxLevel>k__BackingField: 0
