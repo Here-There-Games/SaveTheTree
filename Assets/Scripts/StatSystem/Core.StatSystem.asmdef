@@ -1,0 +1,14 @@
+{
+    "name": "Core.StatSystem",
+    "rootNamespace": "Core",
+    "references": ["GUID:16d9c59fc88480d488f5c4fce5a19acd"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

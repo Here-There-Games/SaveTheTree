@@ -9,8 +9,9 @@ namespace Entity.Player
         [SerializeField] private InputActionReference moveReference;
         [SerializeField] private InputActionReference attackReference;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             ChangeInputEnabled(true);
             attackReference.action.started += OnAttackPressStarted;
         }

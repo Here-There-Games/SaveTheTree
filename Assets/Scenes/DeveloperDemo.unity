@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 66335585}
   - component: {fileID: 66335584}
   - component: {fileID: 66335583}
+  - component: {fileID: 66335586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb95fd4c8e441a4b69763f9ba719142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: a6cf5e7fa007ae940993612e08bd49ee, type: 2}
   moveReference: {fileID: -3490546440642265154, guid: 8823cb16c0fbd924ebf871874a979d96, type: 3}
   attackReference: {fileID: -4941329496644903441, guid: 8823cb16c0fbd924ebf871874a979d96, type: 3}
 --- !u!70 &66335584
@@ -188,6 +188,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66335586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66335582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6aeb71eaa5403aa1cc91e0707ad1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTemplate:
+  - rid: 1207331047831502852
+  - rid: 1207331047831502853
+  - rid: 1207331047831502854
+  references:
+    version: 2
+    RefIds:
+    - rid: 1207331047831502852
+      type: {class: Attribute, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        id: Health
+        value: 100
+        maxValue: 100
+    - rid: 1207331047831502853
+      type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        <ID>k__BackingField: Damage
+        <Value>k__BackingField: 1
+    - rid: 1207331047831502854
+      type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        <ID>k__BackingField: Speed
+        <Value>k__BackingField: 1
 --- !u!1 &108953958
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108953960}
   - component: {fileID: 108953959}
+  - component: {fileID: 108953961}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -217,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0800206028810ba418c805077c4f9496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 6e80f7cdfd6a26345825167e4ee9c0c2, type: 2}
 --- !u!4 &108953960
 Transform:
   m_ObjectHideFlags: 0
@@ -235,6 +270,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108953961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108953958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6aeb71eaa5403aa1cc91e0707ad1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTemplate:
+  - rid: 1207331047831502852
+  - rid: 1207331047831502853
+  - rid: 1207331047831502854
+  references:
+    version: 2
+    RefIds:
+    - rid: 1207331047831502852
+      type: {class: Attribute, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        id: Health
+        value: 100
+        maxValue: 100
+    - rid: 1207331047831502853
+      type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        <ID>k__BackingField: Damage
+        <Value>k__BackingField: 1
+    - rid: 1207331047831502854
+      type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
+      data:
+        <ID>k__BackingField: Speed
+        <Value>k__BackingField: 1
 --- !u!1 &452988490
 GameObject:
   m_ObjectHideFlags: 0
