@@ -3,7 +3,7 @@ using Core.StatSystem.Interfaces;
 using System;
 using UnityEngine;
 
-namespace Entity
+namespace Entity.Characters
 {
     public class EntityController : MonoBehaviour
     {

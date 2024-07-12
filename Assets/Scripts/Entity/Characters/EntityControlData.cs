@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Entity
+namespace Entity.Characters
 {
     [CreateAssetMenu(fileName = "Entity Control Data", menuName = "Entity/Control Data")]
     public class EntityControlData : ScriptableObject
