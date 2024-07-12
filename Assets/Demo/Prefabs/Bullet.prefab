@@ -133,6 +133,7 @@ MonoBehaviour:
   damage: 1
   speed: 10
   lifetime: 5
+  Direction: {x: 0, y: 0}
 --- !u!58 &6049525268627415034
 CircleCollider2D:
   m_ObjectHideFlags: 0
