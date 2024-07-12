@@ -1,13 +1,14 @@
-using Entity.Player;
+using Entity.Characters.Player;
 using UnityEngine;
 
-namespace Entity.Enemy
+namespace Entity.Characters.Enemy
 {
     public class AI : EntityController
     {
         private InputController playerController;
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             playerController = FindObjectOfType<InputController>();
         }
 

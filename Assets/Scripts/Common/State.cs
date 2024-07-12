@@ -3,6 +3,7 @@
     public enum State
     {
         Executing,
+        Paused,
         Stopped,
     }
 }

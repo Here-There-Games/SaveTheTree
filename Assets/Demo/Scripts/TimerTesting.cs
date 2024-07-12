@@ -1,5 +1,4 @@
 ﻿using Common;
-using System;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
@@ -9,8 +8,8 @@ namespace Demo.Scripts
 {
     public class TimerTesting : MonoBehaviour
     {
-        [SerializeField] private TMP_Text TimeText;
-        [SerializeField] private TMP_Text RemainingTimeText;
+        [SerializeField] private TMP_Text timeText;
+        [SerializeField] private TMP_Text remainingTimeText;
         [SerializeField] private TMP_Text StateText;
         [SerializeField] private int timerTime;
         [SerializeField] private Button startTimer;
@@ -34,8 +33,8 @@ namespace Demo.Scripts
 
         private void UpdateUI(float remainingTime, float time)
         {
-            TimeText.text = time.ToString(CultureInfo.InvariantCulture);
-            RemainingTimeText.text = remainingTime.ToString(CultureInfo.InvariantCulture);
+            timeText.text = time.ToString(CultureInfo.InvariantCulture);
+            remainingTimeText.text = remainingTime.ToString(CultureInfo.InvariantCulture);
             StateText.text = timer.State.ToString();
         }
 
