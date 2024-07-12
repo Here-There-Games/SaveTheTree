@@ -1,6 +1,4 @@
-﻿using Common;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Entity
@@ -14,11 +12,12 @@ namespace Entity
 
         private void Awake()
         {
-            var mousePosition = (Mouse.current.position.ReadValue());
-            var thisPosition = transform.position;
-            direction = new Vector2(mousePosition.x - thisPosition.x, mousePosition.y - thisPosition.y);
-            Destroy(gameObject,lifetime);
-            Debug.Log(mousePosition.ToString());
+            if(Camera.main != null){
+                var mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                var thisPosition = transform.position;
+                direction = new Vector2(mousePosition.x - thisPosition.x, mousePosition.y - thisPosition.y);
+                Destroy(gameObject,lifetime);
+            }
         }
 
         private void FixedUpdate()

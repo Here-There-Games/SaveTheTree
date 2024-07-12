@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Entity
 {
@@ -15,19 +17,16 @@ namespace Entity
         {
             attack = new Attack(AttackBehaviour, attackPreparing, attackCooldown);
         }
-
+        
         public void Attack()
         {
-            if(attack.TryStart())
-                Debug.Log("Attack Successful. Play Animation");
-            else{
+            if(!attack.TryStart())
                 Debug.Log("Attack Failed");
-            }
         }
 
         private void AttackBehaviour()
         {
-            var instance = Instantiate(bulletPrefab,muzzle);
+            Instantiate(bulletPrefab, muzzle);
         }
     }
 }
