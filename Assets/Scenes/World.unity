@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 310269862}
   - component: {fileID: 310269861}
   m_Layer: 0
-  m_Name: 2
+  m_Name: Decoration L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7083,7 +7083,7 @@ GameObject:
   - component: {fileID: 514237381}
   - component: {fileID: 514237380}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23059,7 +23059,7 @@ GameObject:
   - component: {fileID: 553588095}
   - component: {fileID: 553588094}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Decoration L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

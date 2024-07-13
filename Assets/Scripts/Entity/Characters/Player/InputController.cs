@@ -10,12 +10,16 @@ namespace Entity.Characters.Player
         [SerializeField] private InputActionReference attackReference;
 
         private WateringCan wateringCan;
+        private Animator playerAnimator;
+        private static readonly int horizontal = Animator.StringToHash("Horizontal");
+        private static readonly int vertical = Animator.StringToHash("Vertical");
 
         protected override void Start()
         {
             base.Start();
 
             wateringCan = GetComponentInChildren<WateringCan>();
+            playerAnimator = GetComponent<Animator>();
 
             ChangeInputEnabled(true);
             attackReference.action.started += OnAttackPressStarted;
@@ -42,7 +46,13 @@ namespace Entity.Characters.Player
 
         private void FixedUpdate()
         {
-            Move(moveReference.action.ReadValue<Vector2>(), Time.fixedDeltaTime);
+            var direction = moveReference.action.ReadValue<Vector2>();
+            Move(direction, Time.fixedDeltaTime);
+
+            if(playerAnimator){
+                playerAnimator.SetFloat(horizontal, direction.x);
+                playerAnimator.SetFloat(vertical, direction.y);
+            }
 
             if(wateringCan != null){
                 wateringCan.Rotate(GetWeaponDirection());
