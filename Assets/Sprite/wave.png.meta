@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ad733e211e804119b57f5e356ae227f
+guid: 38d38348095254e2d9ee1fa009cf79d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,211 +117,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walking_back_0
+      name: wave_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 4
-        width: 16
-        height: 24
+        x: 17
+        y: 3
+        width: 15
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64d57ceda49514d61b86da12d344d8d5
-      internalID: -1177213380
+      spriteID: c532cd8ff8852484e9d5f61c2023c184
+      internalID: -2092443513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_1
+      name: wave_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afff224a441c448109ba73d93a7ce9b3
-      internalID: -1523892299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_2
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78ffd2a890b9c4454850513105a60d3c
-      internalID: 1507431046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_3
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6de742cb2bd14324bee91495535f4f3
-      internalID: -1128652538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_4
-      rect:
-        serializedVersion: 2
-        x: 127
+        x: 46
         y: 3
         width: 16
-        height: 24
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bade45307d13e440d910847f373b54c7
-      internalID: 910239410
+      spriteID: 4440669bcbbbb4eb29ea12e7dedd333b
+      internalID: 96403359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_5
+      name: wave_2
       rect:
         serializedVersion: 2
-        x: 157
-        y: 4
-        width: 16
-        height: 24
+        x: 84
+        y: 1
+        width: 17
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d87bc2ecc50af48c499096a7befdce83
-      internalID: 1877414474
+      spriteID: 82307c3c925bf457396427893590a67d
+      internalID: -955977995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_6
+      name: wave_3
       rect:
         serializedVersion: 2
-        x: 187
-        y: 4
-        width: 16
-        height: 24
+        x: 119
+        y: 2
+        width: 15
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19dbdd3a65f5e4e37b39e05f7da91fd5
-      internalID: 1560915471
+      spriteID: a000e20fc694e479db6201575dd06ca5
+      internalID: 281314298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_7
+      name: wave_4
       rect:
         serializedVersion: 2
-        x: 217
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fd6fb5d06d864a5fada67f91cd1894c
-      internalID: 1684998026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_8
-      rect:
-        serializedVersion: 2
-        x: 247
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 968847c0174b24e71a288d3a25cf76cd
-      internalID: -933030493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_9
-      rect:
-        serializedVersion: 2
-        x: 277
+        x: 144
         y: 3
-        width: 16
-        height: 24
+        width: 15
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93bc8bf447b94b239cb6641cf307ad7
-      internalID: -628409565
+      spriteID: 44e3f4951f22c4cc7be26b296bedca5c
+      internalID: -1580516152
       vertices: []
       indices: 
       edges: []
@@ -337,16 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walking_back_0: -1177213380
-      Walking_back_1: -1523892299
-      Walking_back_2: 1507431046
-      Walking_back_3: -1128652538
-      Walking_back_4: 910239410
-      Walking_back_5: 1877414474
-      Walking_back_6: 1560915471
-      Walking_back_7: 1684998026
-      Walking_back_8: -933030493
-      Walking_back_9: -628409565
+      wave_0: -2092443513
+      wave_1: 96403359
+      wave_2: -955977995
+      wave_3: 281314298
+      wave_4: -1580516152
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
