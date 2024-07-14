@@ -29,7 +29,7 @@ MonoBehaviour:
       type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
       data:
         <ID>k__BackingField: Speed
-        <Value>k__BackingField: 1
+        <Value>k__BackingField: 5
     - rid: 1207331047831502851
       type: {class: Stat, ns: Core.StatSystem, asm: Core.StatSystem}
       data:

@@ -19,7 +19,7 @@ namespace Entity.Characters.Player
             base.Start();
 
             wateringCan = GetComponentInChildren<WateringCan>();
-            playerAnimator = GetComponent<Animator>();
+            playerAnimator = GetComponentInChildren<Animator>();
 
             ChangeInputEnabled(true);
             attackReference.action.started += OnAttackPressStarted;
@@ -49,7 +49,7 @@ namespace Entity.Characters.Player
             var direction = moveReference.action.ReadValue<Vector2>();
             Move(direction, Time.fixedDeltaTime);
 
-            if(playerAnimator){
+            if(playerAnimator != null){
                 playerAnimator.SetFloat(horizontal, direction.x);
                 playerAnimator.SetFloat(vertical, direction.y);
             }
