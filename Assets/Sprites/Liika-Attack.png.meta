@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd7aa9ead93af4b6cb3c946a07d7ca5e
+guid: fe30683ec339544939798b1ab3735101
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,17 +113,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kusti_0
+      name: Liika-Attack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 14
-        height: 12
+        x: 1
+        y: 5
+        width: 11
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4193284f214834dffb432bd13bdfecd7
-      internalID: 166259230
+      spriteID: fafaa1fdd99d0457b86241c2aa98e429
+      internalID: -2083838301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kusti_1
+      name: Liika-Attack_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 112
+        x: 25
+        y: 5
         width: 10
-        height: 11
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f7ac6f4055a847d2ac6c7c524fd6849
-      internalID: -223601663
+      spriteID: 40932e5d763dc4a7f8c9179926e6e10d
+      internalID: 361604282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kusti_2
+      name: Liika-Attack_2
       rect:
         serializedVersion: 2
-        x: 26
-        y: 112
-        width: 8
-        height: 11
+        x: 49
+        y: 5
+        width: 9
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d90fb540ad5854e9ca7306ea5af3be64
-      internalID: 1583931722
+      spriteID: faefbe78bb5cb428999fa80b8074a62f
+      internalID: 2049701477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kusti_3
+      name: Liika-Attack_3
       rect:
         serializedVersion: 2
-        x: 35
-        y: 112
-        width: 11
+        x: 73
+        y: 5
+        width: 13
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d6d142e3b564e33aa9f634600cd9c0
-      internalID: 530567309
+      spriteID: ef6c2322398bf4811bb5d329427a3470
+      internalID: 669857764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kusti_4
+      name: Liika-Attack_4
       rect:
         serializedVersion: 2
-        x: 47
-        y: 112
-        width: 6
-        height: 10
+        x: 97
+        y: 5
+        width: 11
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,19 +227,61 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3277b5372a2ea4948b540f3f59ce4edb
-      internalID: -631800624
+      spriteID: 3c55c508a6a53451d8756460365f8d59
+      internalID: 1427426615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kusti_5
+      name: Liika-Attack_5
       rect:
         serializedVersion: 2
-        x: 54
-        y: 112
-        width: 11
+        x: 108
+        y: 6
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32247c53884e489b8bbc4387182ded6
+      internalID: 1117151122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liika-Attack_6
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 5
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cf85772b0604ce28d1e04ff7bc0938
+      internalID: -2065295353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Liika-Attack_7
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 4
+        width: 15
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -236,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b185ea25ebd24eb9a02aeb6cf17358a
-      internalID: -1998553820
+      spriteID: 94e47fc6aba4e4ec7865db3904caab7a
+      internalID: -551602892
       vertices: []
       indices: 
       edges: []
@@ -253,12 +307,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kusti_0: 166259230
-      kusti_1: -223601663
-      kusti_2: 1583931722
-      kusti_3: 530567309
-      kusti_4: -631800624
-      kusti_5: -1998553820
+      Liika-Attack_0: -2083838301
+      Liika-Attack_1: 361604282
+      Liika-Attack_2: 2049701477
+      Liika-Attack_3: 669857764
+      Liika-Attack_4: 1427426615
+      Liika-Attack_5: 1117151122
+      Liika-Attack_6: -2065295353
+      Liika-Attack_7: -551602892
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

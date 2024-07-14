@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3889f5b410064ae18378e9093bb1115
+guid: 6a6f5854581b149c988285e58f7699b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,17 +113,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-walking_down_0
+      name: Tree_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 16
-        height: 25
+        x: 104
+        y: 74
+        width: 7
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74fe017f596af440c8f4bd3c356eeedd
-      internalID: 469831201
+      spriteID: 2943bc0b13b8549938616af4aab45d7d
+      internalID: -1532667322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_down_1
+      name: Tree_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 16
-        height: 25
+        x: 116
+        y: 74
+        width: 7
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37ae2504fe2834205bdb7e650be94a14
-      internalID: 1423680313
+      spriteID: b96a7867e9b3c4635b5c676a524284a7
+      internalID: 358830525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_down_2
+      name: Tree_2
       rect:
         serializedVersion: 2
-        x: 37
-        y: 0
-        width: 16
-        height: 25
+        x: 126
+        y: 74
+        width: 7
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3627cbe07456f4bb194c0bd5531ec9ec
-      internalID: 313980328
+      spriteID: 5325cd114fdc04136bc8a4fe415e5b14
+      internalID: -1259804065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_down_3
+      name: Tree_3
       rect:
         serializedVersion: 2
-        x: 55
-        y: 0
-        width: 16
-        height: 25
+        x: 138
+        y: 74
+        width: 11
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e9215487c151425184e453aa3fcb636
-      internalID: 1988431577
+      spriteID: 57d849572384c470b91ef6b114effb98
+      internalID: -1247401459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_down_4
+      name: Tree_4
       rect:
         serializedVersion: 2
-        x: 73
-        y: 0
-        width: 16
-        height: 25
+        x: 152
+        y: 74
+        width: 14
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,113 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2937977eca2a94f2286a34937ecd674f
-      internalID: -1039359493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_down_5
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 0
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2df2d2bc6b0bf4e7dbf905efa4e847f2
-      internalID: -1708646825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_down_6
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 0
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3683cd184fcd940a8a7f049a7e1e6bc6
-      internalID: 1115473556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_down_7
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 0
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0928916a355c48ee8c7cf6689a84b7b
-      internalID: -1637689102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_down_8
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 0
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc5dca331c30a4dffb6c4a5c72b23580
-      internalID: 758932460
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_down_9
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 0
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ece4c9c8d71b54429bf01deea984008b
-      internalID: 1091835044
+      spriteID: 9daff4d875ea34abca853ae01bec5a45
+      internalID: -1685602049
       vertices: []
       indices: 
       edges: []
@@ -337,16 +244,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player-walking_down_0: 469831201
-      player-walking_down_1: 1423680313
-      player-walking_down_2: 313980328
-      player-walking_down_3: 1988431577
-      player-walking_down_4: -1039359493
-      player-walking_down_5: -1708646825
-      player-walking_down_6: 1115473556
-      player-walking_down_7: -1637689102
-      player-walking_down_8: 758932460
-      player-walking_down_9: 1091835044
+      Tree_0: -1532667322
+      Tree_1: 358830525
+      Tree_2: -1259804065
+      Tree_3: -1247401459
+      Tree_4: -1685602049
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2aaed1fe5f39641a394dbffd039c0d79
+guid: c3889f5b410064ae18378e9093bb1115
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,131 +113,227 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cactus-Idle_0
+      name: Player_Walking_Down_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 32
-        width: 20
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5108b3b65e094400883635a724bcbd4c
-      internalID: 1026108478
+      spriteID: 07bf4cfd8f1329846a673048894048c3
+      internalID: 664198958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus-Idle_1
+      name: Player_Walking_Down_1
       rect:
         serializedVersion: 2
-        x: 22
-        y: 32
-        width: 18
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 19
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d727ac2b675484d0b85a4aa749dedd20
-      internalID: 1968171612
+      spriteID: 6d7130ef60dec5043be86e2c494a4ddf
+      internalID: -96886821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus-Idle_2
+      name: Player_Walking_Down_2
       rect:
         serializedVersion: 2
-        x: 41
-        y: 32
-        width: 18
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 37
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e52ce6fef6ed1483787548c421917523
-      internalID: 955276152
+      spriteID: 2ec3d1d6e5c87a6458c72c291796169e
+      internalID: -1205163028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus-Idle_3
+      name: Player_Walking_Down_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 55
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5a1845f4f3d49a2bd54e8056a45c43
-      internalID: -1154520773
+      spriteID: c2151cb9de936da48ab6e08f776f18da
+      internalID: -1256983098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus-Idle_4
+      name: Player_Walking_Down_4
       rect:
         serializedVersion: 2
-        x: 22
-        y: 1
-        width: 18
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 73
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2d1616a5b5c0468aa00108dd2d2578e
-      internalID: 1106311422
+      spriteID: 479cec28ac07b66468689ce806383ffe
+      internalID: 1263920368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cactus-Idle_5
+      name: Player_Walking_Down_5
       rect:
         serializedVersion: 2
-        x: 42
-        y: 1
-        width: 17
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 91
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9de33c732959443b2a5b6e4665b8b169
-      internalID: -1848431709
+      spriteID: cd332f41cce3cda439239f413a711655
+      internalID: -1287039884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Walking_Down_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0ac14e8cd0dd04d9a297345335c6ea
+      internalID: -1336053774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Walking_Down_7
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da50f60e722c6f48ab01dda53d8ff23
+      internalID: 1240946810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Walking_Down_8
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7146231f6b1e6549a02e747cc07992c
+      internalID: -753038873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Walking_Down_9
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a81369003616a47ae90b623ea11fff
+      internalID: 2029084545
       vertices: []
       indices: 
       edges: []
@@ -253,12 +349,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cactus-Idle_0: 1026108478
-      Cactus-Idle_1: 1968171612
-      Cactus-Idle_2: 955276152
-      Cactus-Idle_3: -1154520773
-      Cactus-Idle_4: 1106311422
-      Cactus-Idle_5: -1848431709
+      Player_Walking_Down_0: 664198958
+      Player_Walking_Down_1: -96886821
+      Player_Walking_Down_2: -1205163028
+      Player_Walking_Down_3: -1256983098
+      Player_Walking_Down_4: 1263920368
+      Player_Walking_Down_5: -1287039884
+      Player_Walking_Down_6: -1336053774
+      Player_Walking_Down_7: 1240946810
+      Player_Walking_Down_8: -753038873
+      Player_Walking_Down_9: 2029084545
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

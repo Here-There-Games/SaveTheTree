@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c60b1f3db6aa40c181b902853cc3822
+guid: fd7aa9ead93af4b6cb3c946a07d7ca5e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,17 +113,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-walking_right_0
+      name: kusti_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
+        x: 0
+        y: 112
         width: 14
-        height: 24
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 646b6321e89844ba6aca7fb7b9645f7d
-      internalID: -1270139147
+      spriteID: 4193284f214834dffb432bd13bdfecd7
+      internalID: 166259230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_right_1
+      name: kusti_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 1
-        width: 14
-        height: 24
+        x: 15
+        y: 112
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54045986c4f904f9fa7c1976d0f94fbc
-      internalID: -593575933
+      spriteID: 5f7ac6f4055a847d2ac6c7c524fd6849
+      internalID: -223601663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_right_2
+      name: kusti_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 14
-        height: 24
+        x: 26
+        y: 112
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599b64569307b41a68f79e371add3e94
-      internalID: 521293975
+      spriteID: d90fb540ad5854e9ca7306ea5af3be64
+      internalID: 1583931722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_right_3
+      name: kusti_3
       rect:
         serializedVersion: 2
-        x: 53
-        y: 1
-        width: 14
-        height: 24
+        x: 35
+        y: 112
+        width: 11
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18ddac9087e80408bbdcadcd412e68b7
-      internalID: -194541482
+      spriteID: 20d6d142e3b564e33aa9f634600cd9c0
+      internalID: 530567309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_right_4
+      name: kusti_4
       rect:
         serializedVersion: 2
-        x: 70
-        y: 1
-        width: 14
-        height: 24
+        x: 47
+        y: 112
+        width: 6
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbc60d247d1974fbaa4cfaa55b57db36
-      internalID: 557396377
+      spriteID: 3277b5372a2ea4948b540f3f59ce4edb
+      internalID: -631800624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-walking_right_5
+      name: kusti_5
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1
-        width: 14
-        height: 24
+        x: 54
+        y: 112
+        width: 11
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,71 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c05dde78dc5a84450a93573bef99b7b9
-      internalID: 691335527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_right_6
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 1
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6101158fe0783412b866e9c49f8b555f
-      internalID: 1458145510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_right_7
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 1
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf6b7e347e54f4e0096cdb12fb4b92ad
-      internalID: 136841207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-walking_right_8
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 1
-        width: 14
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d214613be8eb246caae0ff03f6af9a77
-      internalID: -1852171246
+      spriteID: 0b185ea25ebd24eb9a02aeb6cf17358a
+      internalID: -1998553820
       vertices: []
       indices: 
       edges: []
@@ -316,15 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player-walking_right_0: -1270139147
-      player-walking_right_1: -593575933
-      player-walking_right_2: 521293975
-      player-walking_right_3: -194541482
-      player-walking_right_4: 557396377
-      player-walking_right_5: 691335527
-      player-walking_right_6: 1458145510
-      player-walking_right_7: 136841207
-      player-walking_right_8: -1852171246
+      kusti_0: 166259230
+      kusti_1: -223601663
+      kusti_2: 1583931722
+      kusti_3: 530567309
+      kusti_4: -631800624
+      kusti_5: -1998553820
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

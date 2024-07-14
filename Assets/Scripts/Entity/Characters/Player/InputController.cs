@@ -50,8 +50,8 @@ namespace Entity.Characters.Player
             Move(direction, Time.fixedDeltaTime);
 
             if(playerAnimator != null){
-                playerAnimator.SetFloat(horizontal, direction.x);
-                playerAnimator.SetFloat(vertical, direction.y);
+                playerAnimator.SetFloat(horizontal, direction.normalized.x);
+                playerAnimator.SetFloat(vertical, direction.normalized.y);
             }
 
             if(wateringCan != null){

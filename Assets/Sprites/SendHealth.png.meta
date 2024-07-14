@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ad733e211e804119b57f5e356ae227f
+guid: c46cf7848fea94da8ab676106cb260e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,215 +113,143 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walking_back_0
+      name: SendHealth_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 4
-        width: 16
-        height: 24
+        x: 0
+        y: 0
+        width: 1
+        height: 2
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64d57ceda49514d61b86da12d344d8d5
-      internalID: -1177213380
+      spriteID: dc89983400e7d43c1b17daea4a729a7f
+      internalID: 1242820912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_1
+      name: SendHealth_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 4
-        width: 16
-        height: 24
+        x: 18
+        y: 1
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afff224a441c448109ba73d93a7ce9b3
-      internalID: -1523892299
+      spriteID: ebbd5980fe4e94b7b9e17a70feaef05f
+      internalID: 1876977465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_2
+      name: SendHealth_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 4
-        width: 16
-        height: 24
+        x: 32
+        y: 1
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78ffd2a890b9c4454850513105a60d3c
-      internalID: 1507431046
+      spriteID: 17a81986408ab4cf28c19c359b267de3
+      internalID: 1876398466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_3
+      name: SendHealth_3
       rect:
         serializedVersion: 2
-        x: 97
-        y: 4
-        width: 16
-        height: 24
+        x: 46
+        y: 1
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6de742cb2bd14324bee91495535f4f3
-      internalID: -1128652538
+      spriteID: c2b21ad96eed844bbad3d17b06b466df
+      internalID: -51820667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_4
+      name: SendHealth_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 3
-        width: 16
-        height: 24
+        x: 60
+        y: 1
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bade45307d13e440d910847f373b54c7
-      internalID: 910239410
+      spriteID: 903af136a0f374c70af905db7c4a2c85
+      internalID: 995904752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking_back_5
+      name: SendHealth_5
       rect:
         serializedVersion: 2
-        x: 157
-        y: 4
-        width: 16
-        height: 24
+        x: 74
+        y: 1
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d87bc2ecc50af48c499096a7befdce83
-      internalID: 1877414474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_6
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19dbdd3a65f5e4e37b39e05f7da91fd5
-      internalID: 1560915471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_7
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fd6fb5d06d864a5fada67f91cd1894c
-      internalID: 1684998026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_8
-      rect:
-        serializedVersion: 2
-        x: 247
-        y: 4
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 968847c0174b24e71a288d3a25cf76cd
-      internalID: -933030493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walking_back_9
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 3
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c93bc8bf447b94b239cb6641cf307ad7
-      internalID: -628409565
+      spriteID: 7b71a8a46faf5480ab1bfd848b34601c
+      internalID: -925591809
       vertices: []
       indices: 
       edges: []
@@ -337,16 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walking_back_0: -1177213380
-      Walking_back_1: -1523892299
-      Walking_back_2: 1507431046
-      Walking_back_3: -1128652538
-      Walking_back_4: 910239410
-      Walking_back_5: 1877414474
-      Walking_back_6: 1560915471
-      Walking_back_7: 1684998026
-      Walking_back_8: -933030493
-      Walking_back_9: -628409565
+      SendHealth_0: 1242820912
+      SendHealth_1: 1876977465
+      SendHealth_2: 1876398466
+      SendHealth_3: -51820667
+      SendHealth_4: 995904752
+      SendHealth_5: -925591809
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

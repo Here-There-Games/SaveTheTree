@@ -5,14 +5,17 @@ namespace Entity
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private float damage = 1;
         [SerializeField] private float speed = 10;
         [SerializeField] private float lifetime = 5;
         public Vector2 Direction;
+        private Animator bulletAnimator;
+        private Animation bulletAnimation;
 
         private void Awake()
         {
             Destroy(gameObject, lifetime);
+            bulletAnimation = GetComponent<Animation>();
+            transform.rotation = Quaternion.Euler(Direction);
         }
 
         private void FixedUpdate()

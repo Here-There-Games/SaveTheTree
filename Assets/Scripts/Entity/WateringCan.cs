@@ -23,7 +23,6 @@ namespace Entity
         {
             if(attack.TryStart()){
                 attackDirection = direction;
-                // attackDirection = Vector2.zero;
                 return;
             }
 
@@ -32,8 +31,7 @@ namespace Entity
 
         private void AttackBehaviour()
         {
-            Instantiate(bulletPrefab, muzzle)
-                .With(b => b.transform.SetParent(null))
+            Instantiate(bulletPrefab, muzzle.transform.position, Quaternion.identity)
                 .With(b => b.Direction = attackDirection);
         }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9018a093e60e4b179adc63157444c30
+guid: 3ad733e211e804119b57f5e356ae227f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,299 +113,227 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_anim_0
+      name: Player_Walking_Up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 9
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 684876f584ec84e5e86f03a2ab48fbe1
-      internalID: 202923514
+      spriteID: 7ad9e2f6558cd9e418cb4a7640cf3a9f
+      internalID: -1742388497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_1
+      name: Player_Walking_Up_1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 37
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e42b14ae7262345e48d6dde009a001b4
-      internalID: 1879102677
+      spriteID: 17b2566fcca80b941b68480a170d90e1
+      internalID: -56388115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_2
+      name: Player_Walking_Up_2
       rect:
         serializedVersion: 2
-        x: 22
-        y: 0
-        width: 9
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 67
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb46e93134580472b9c0b3eb462a8c1c
-      internalID: 2104446998
+      spriteID: 796a8bdfccaa5fb40b2c708c379a060a
+      internalID: -1178793732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_3
+      name: Player_Walking_Up_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 0
-        width: 9
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 97
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44e6e77eddd414b438a6d6271295d192
-      internalID: -1014217793
+      spriteID: ff859aa5e99ec4e428a91ab5e8a98537
+      internalID: -1374913919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_4
+      name: Player_Walking_Up_4
       rect:
         serializedVersion: 2
-        x: 44
-        y: 0
-        width: 9
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 127
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163d14ac6e02f4c8794b014b9d409e2e
-      internalID: 926084577
+      spriteID: 6735876fdaa55e94e99150b6251e70e5
+      internalID: -1013053241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_5
+      name: Player_Walking_Up_5
       rect:
         serializedVersion: 2
-        x: 55
-        y: 0
-        width: 9
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 157
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472dd8c7b4deb4b45abb89481f8e646e
-      internalID: 495276031
+      spriteID: 8586b745c004e154baf8253d7f7a0376
+      internalID: 1273835892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_6
+      name: Player_Walking_Up_6
       rect:
         serializedVersion: 2
-        x: 66
-        y: 0
-        width: 9
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 187
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09093f54b5c7e4739a6ad0ef5f397107
-      internalID: -433847141
+      spriteID: 64a9ce11392adb945964144b3353bfad
+      internalID: 1142184015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_7
+      name: Player_Walking_Up_7
       rect:
         serializedVersion: 2
-        x: 77
-        y: 0
-        width: 9
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 217
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6aa3efe9760846a195b8b0942fd5d65
-      internalID: 1224667188
+      spriteID: d0cbd41dbce32d64faffe89df40ade65
+      internalID: 1217792286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_8
+      name: Player_Walking_Up_8
       rect:
         serializedVersion: 2
-        x: 88
-        y: 0
-        width: 9
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 247
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58fdbf5aee80e4f9daf98f108ec5a1ed
-      internalID: -868261218
+      spriteID: 94794a3dc0b70394c8eae9eae0583903
+      internalID: 761890651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_anim_9
+      name: Player_Walking_Up_9
       rect:
         serializedVersion: 2
-        x: 99
-        y: 0
-        width: 9
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 277
+        y: 3
+        width: 16
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81818bc9c69414fa895ff06ee98a7ffd
-      internalID: -563084110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_anim_10
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 0
-        width: 9
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bca0959882d6a4780aa4b9e5db12f9f2
-      internalID: 1614841058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_anim_11
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 0
-        width: 9
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81519fdebef5447daae89e1e21e7c348
-      internalID: -1247894677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_anim_12
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8fd1e51c963145a98f0e3e082bd3038
-      internalID: 510856398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_anim_13
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 0
-        width: 9
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc93558d5720b498ab7fa16b35385fd9
-      internalID: 1221822128
+      spriteID: f3952c5486c6cc04d93b0da4a9f9d04e
+      internalID: -464802176
       vertices: []
       indices: 
       edges: []
@@ -421,20 +349,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      water_anim_0: 202923514
-      water_anim_1: 1879102677
-      water_anim_10: 1614841058
-      water_anim_11: -1247894677
-      water_anim_12: 510856398
-      water_anim_13: 1221822128
-      water_anim_2: 2104446998
-      water_anim_3: -1014217793
-      water_anim_4: 926084577
-      water_anim_5: 495276031
-      water_anim_6: -433847141
-      water_anim_7: 1224667188
-      water_anim_8: -868261218
-      water_anim_9: -563084110
+      Player_Walking_Up_0: -1742388497
+      Player_Walking_Up_1: -56388115
+      Player_Walking_Up_2: -1178793732
+      Player_Walking_Up_3: -1374913919
+      Player_Walking_Up_4: -1013053241
+      Player_Walking_Up_5: 1273835892
+      Player_Walking_Up_6: 1142184015
+      Player_Walking_Up_7: 1217792286
+      Player_Walking_Up_8: 761890651
+      Player_Walking_Up_9: -464802176
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
