@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c46cf7848fea94da8ab676106cb260e6
+guid: a301f5486b1cc4a818183d85ff896533
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,29 +113,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SendHealth_0
+      name: rightPlayer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1
-        height: 2
+        x: 21
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc89983400e7d43c1b17daea4a729a7f
-      internalID: 1242820912
+      spriteID: ffb1b29552cf946929b728454eb41764
+      internalID: 804454328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SendHealth_1
+      name: rightPlayer_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 1
-        width: 13
-        height: 11
+        x: 42
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebbd5980fe4e94b7b9e17a70feaef05f
-      internalID: 1876977465
+      spriteID: d6da24e53da1e4a2b84f9f6090520390
+      internalID: 1231693388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SendHealth_2
+      name: rightPlayer_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 1
-        width: 13
-        height: 11
+        x: 62
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17a81986408ab4cf28c19c359b267de3
-      internalID: 1876398466
+      spriteID: e0d2039f3639d4c7c83c003a1a6a9627
+      internalID: 1242996760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SendHealth_3
+      name: rightPlayer_3
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1
-        width: 13
-        height: 11
+        x: 87
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b21ad96eed844bbad3d17b06b466df
-      internalID: -51820667
+      spriteID: 2ed966454102047b388d6d1bdcb11cae
+      internalID: 1724723804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SendHealth_4
+      name: rightPlayer_4
       rect:
         serializedVersion: 2
-        x: 60
-        y: 1
-        width: 13
-        height: 11
+        x: 109
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 903af136a0f374c70af905db7c4a2c85
-      internalID: 995904752
+      spriteID: d9aa8139705d5457c9f29b20ddd7ed14
+      internalID: 1575993967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SendHealth_5
+      name: rightPlayer_5
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1
-        width: 13
-        height: 11
+        x: 132
+        y: 8
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +236,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b71a8a46faf5480ab1bfd848b34601c
-      internalID: -925591809
+      spriteID: 4f9637256bfc948f2824528f05a11d22
+      internalID: 1776583512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightPlayer_6
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 8
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b773094bad6b4197ade3ad4af94d412
+      internalID: 1431946087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightPlayer_7
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 8
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d23f69059ea848a6ad80fa8a0884daa
+      internalID: -924141207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightPlayer_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 8
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76cf46ae564c444785ea2d7d541af9a
+      internalID: 1421674609
       vertices: []
       indices: 
       edges: []
@@ -265,12 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SendHealth_0: 1242820912
-      SendHealth_1: 1876977465
-      SendHealth_2: 1876398466
-      SendHealth_3: -51820667
-      SendHealth_4: 995904752
-      SendHealth_5: -925591809
+      rightPlayer_0: 804454328
+      rightPlayer_1: 1231693388
+      rightPlayer_2: 1242996760
+      rightPlayer_3: 1724723804
+      rightPlayer_4: 1575993967
+      rightPlayer_5: 1776583512
+      rightPlayer_6: 1431946087
+      rightPlayer_7: -924141207
+      rightPlayer_8: 1421674609
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
