@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1580516152, guid: 38d38348095254e2d9ee1fa009cf79d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 5686710314117171777}
   - component: {fileID: 4541765090834219435}
   - component: {fileID: 3453823152896158940}
-  - component: {fileID: 3205342036646914126}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -132,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5793230676145c7b615bb5e1d128246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   speed: 10
   lifetime: 5
   Direction: {x: 0, y: 0}
@@ -173,19 +171,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.9, y: 2}
   m_Direction: 0
---- !u!111 &3205342036646914126
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8204988679823852088}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 41fa480b145074c539949c6f55b4c2a4, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 41fa480b145074c539949c6f55b4c2a4, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
